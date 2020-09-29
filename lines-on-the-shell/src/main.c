@@ -6,31 +6,40 @@
 #include "myFunctions.h"
 
 
-// Breite und Höhe des Arrays definieren
-//#define WIDTH = 30;
-//#define HEIGHT = 30;
-int width = 200;
-int height = 50;
-int array1[200][50];
-int array2[200][50];
-// int array3[200][50];
-int i;
-int j;
-int living_cells_around = 0;
-int go_on = 1;
-int generation_counter = 0;
-// int not_same = 1;
-
+int x1 = 10;
+int y1 = 25;
+int x2 = 185;
+int y2 = 4;
+int delta_x;
+float delta_y;
+float steeple = 0.0;
+int delta_y_int = 0;
+int x;
+int y;
 
 int main()
 {
 
+// clear screen
+
+// Goto xy
+// printf("\33[%d;%dH", 1, 1);
+delta_x = x2 - x1; //175
+delta_y = y1 - y2; //21
+steeple = delta_y / delta_x;
+delta_y = 0;
+
+    for (x = 0; x < delta_x; x++) 
+    {
+        printf("\33[%d;%dH*", y1 - delta_y_int, x1 + x);
+        delta_y += steeple;
+        delta_y_int = (int)delta_y;
+    }  
+
+
+
 // main loop
-while (go_on)
-{
-
-} //End while loop
-
+printf("\n");
 return 0;
 
 /*  
