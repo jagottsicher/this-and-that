@@ -6,10 +6,10 @@
 #include "myFunctions.h"
 
 
-int x1 = 10;
-int y1 = 4;
+int x1 = 12;
+int y1 = 25;
 int x2 = 187;
-int y2 = 25;
+int y2 = 4;
 int delta_x;
 float delta_y;
 float steeple = 0.0;
