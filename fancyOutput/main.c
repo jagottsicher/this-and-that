@@ -40,13 +40,13 @@ void fancyOutput(char inputToOutput[])
     while (!(inputToOutput[counter]=='\0'));
     printf("\n");
 
-    printf("%s\n", inputToOutput);
+    printf("%s\n", inputToOutput); // only check, if string was properly handled over to function
 }
 
-char output[] = "Ja, leck mich fett, ich hoffe, das klappt jetzt auch!";
+char output[] = "This string shall appear char by char in the console.";
 
 void main(void)
 {
-    printf("%s\n", output);
-    fancyOutput(output);
+    printf("%s\n", output); // only check, if string was properly set and initialized
+    fancyOutput(output); // here the function above is called to output the string char by cchar with tiny pauses between
 }
