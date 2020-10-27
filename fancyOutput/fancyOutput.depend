@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1603697806 source:/home/jens/development/this-and-that/fancyOutput/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
