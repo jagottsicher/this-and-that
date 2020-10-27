@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1602424213 source:/home/jens/development/this-and-that/eliza/main.c
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	<cs50.h>
+
