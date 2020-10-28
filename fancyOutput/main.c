@@ -34,6 +34,7 @@ void fancyOutput(char inputToOutput[])
     do
     {
         printf("%c", inputToOutput[counter]);
+        fflush(stdout);
         msleep(100);
         ++counter;
     }
