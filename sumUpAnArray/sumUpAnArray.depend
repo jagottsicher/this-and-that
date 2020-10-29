@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1603931573 source:/home/jens/development/this-and-that/sumUpAnArray/main.c
+	<stdio.h>
+	<stdlib.h>
+
