@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct employee
+{
+    char name[20];
+    int hireDate;
+    float salary;
+};
+
+struct employee jens = {"Schendel", 1, 1234.5678};
+struct employee other = NULL;
+
+int main()
+{
+
+    printf("New eployees' Name:");
+    scanf("%", &other.name)
+    printf("New eployees' hire date:");
+    printf("New eployees' salary:");
+
+
+    printf("Employee %s works since %d for us and earns %f.2 credits per year.\n\n", jens.name, jens.hireDate, jens.salary);
+    printf("Employee %s works since %d for us and earns %f.2 credits per year.\n\n", other.name, other.hireDate, other.salary);
+
+    return 0;
+}

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1604290547 source:/home/jens/development/this-and-that/structures-challenge2-pointers,functions/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

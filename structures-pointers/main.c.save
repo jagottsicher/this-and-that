@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void getinfo(struct name * pst);
+
+int main()
+{
+    printf("Hello world!\n");
+    return 0;
+}
+
+void getinfo(struct name * pst)
+{
+    char temp[SLEN];
+    printf("Please enter your given name.\n");
+    s_gets(temp, SLEN);
+    
+    //allocate memory to hold the entered given Name
+    pst->fname = (cahr*)malloo
+    
+    
+}
