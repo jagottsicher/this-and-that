@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1604191857 source:/home/jens/development/this-and-that/sword-animation/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
