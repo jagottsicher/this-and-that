@@ -1,0 +1,4 @@
+int msleep(long tms);
+void fancyOutput(char inputToOutput[]);
+    clearScreen();
+

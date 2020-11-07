@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1604632446 source:/home/jens/development/this-and-that/game-of-life/main.c
+1604643136 source:/home/jens/development/this-and-that/game-of-life/main.c
 	<stdio.h>
 	<math.h>
 	<time.h>
 	<unistd.h>
+	<stdbool.h>
 	"myFunctions.h"
 
-1604624105 /home/jens/development/this-and-that/game-of-life/myFunctions.h
+1604643199 /home/jens/development/this-and-that/game-of-life/myFunctions.h
 
 1604632446 source:/home/jens/development/this-and-that/game-of-life/myFunctions.c
 	<stdio.h>

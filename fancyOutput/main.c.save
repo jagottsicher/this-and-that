@@ -7,8 +7,8 @@
 #include "myFunctions.h"
 
 char output1[] = "This string shall appear char by char in the console.";
-char output2[] = "And below that this tiny string appears char by char by char by char by char by char by ...";
-char output3[] = "with random delays between 50 and 200 milliseconds (ms). So Cool!";
+char output2[] = "And below that this tiny string appears char by char by char ...";
+char output3[] = "with random delays between 50 and 200 milliseconds. So Cool!";
 char output4[] = "But every 20th char there is an extra delay of 300-500 ms.";
 
 void main(void)
@@ -19,5 +19,4 @@ void main(void)
     fancyOutput(output1); // here the function above is called to output the string char by cchar with tiny pauses between
     fancyOutput(output2); // here the function above is called to output the string char by cchar with tiny pauses between
     fancyOutput(output3); // here the function above is called to output the string char by cchar with tiny pauses between
-    fancyOutput(output4); // here the function above is called to output the string char by cchar with tiny pauses between
 }

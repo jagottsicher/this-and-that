@@ -1,10 +1,27 @@
 # depslib dependency file v1.0
-1603886421 source:/home/jens/development/this-and-that/fancyOutput/main.c
+1604738328 source:/home/jens/development/this-and-that/fancyOutput/main.c
 	<stdio.h>
-	<stdlib.h>
+	<math.h>
 	<time.h>
+	<unistd.h>
+	<stdbool.h>
+	"myFunctions.h"
 
 1603775589 source:/home/jens/development/this-and-that/fancyOutput/pointersChallange-1.c
 	<stdio.h>
 	<stdlib.h>
+
+1604737905 source:/home/jens/development/this-and-that/fancyOutput/myFunctions.c
+	<stdio.h>
+	<math.h>
+	<time.h>
+	<unistd.h>
+	<stdbool.h>
+
+1604737898 /home/jens/development/this-and-that/fancyOutput/myFunctions.h
+	<stdio.h>
+	<math.h>
+	<time.h>
+	<unistd.h>
+	<stdbool.h>
 
