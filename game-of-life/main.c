@@ -1,3 +1,10 @@
+// TODO (jens#1#11/07/20): working, but should check for identical arrays only switching (dynamically balance) in that case: stop
+
+// TODO (jens#1#11/07/20): Put repeated output and copying arrays in functions
+
+// TODO (jens#1#11/07/20): Make that functions accepting not arrays, but pointers. to speedup things
+
+
 #include <stdio.h>
 #include <math.h>
 #include <time.h>

@@ -1,3 +1,6 @@
+// TODO (jens#1#11/07/20): Key check while doing FancyOutput. if key pressed skip sleeping ...
+//
+
 #include <stdio.h>
 #include <math.h>
 #include <time.h>

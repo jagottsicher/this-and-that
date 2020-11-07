@@ -1,3 +1,6 @@
+// TODO (jens#1#11/07/20): working, but should check for identical arrays only switching (dynamically balance) in that case: stop 
+
+
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
@@ -203,7 +206,7 @@ else
     }
 }
 printf("Generation #%d\n", generation_counter);
-msleep(500);
+msleep(50);
 generation_counter++;
 }
 
