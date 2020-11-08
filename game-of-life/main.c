@@ -4,6 +4,11 @@
 
 // TODO (jens#1#11/07/20): Make that functions accepting not arrays, but pointers. to speedup things
 
+// TODO (jens#1#11/08/20): Read env-variables: LINES and COLUMNS and move output to the last three bottom lines ...
+
+// TODO (jens#1#11/08/20): Make output at last 3 bottom lines scrolling up properly ...
+
+//Linefeed  to put separated next words to new line if thxt longer than COLUMNS
 
 #include <stdio.h>
 #include <math.h>
@@ -27,6 +32,7 @@ int j;
 int living_cells_around = 0;
 int go_on = true;
 int generation_counter = 0;
+
 // int not_same = 1;
 
 void main(void)

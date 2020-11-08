@@ -1,8 +1,21 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <time.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <sys/ioctl.h>
+
+
+void checkAndSetConsoleDimensions()
+{
+    struct winsize w;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+
+    printf ("lines %d\n", w.ws_row);
+    printf ("columns %d\n", w.ws_col);
+}
+
 
 int returnRandom(int lower, int upper)
 {

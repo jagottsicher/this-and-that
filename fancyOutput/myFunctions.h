@@ -6,6 +6,11 @@
 
 
 int msleep(long tms);
+
 void fancyOutput(char inputToOutput[]);
+
 void clearScreen();
+
 int returnRandom(int lower, int upper);
+
+void checkAndSetConsoleDimensions();

@@ -2,6 +2,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <time.h>
 #include <unistd.h>
@@ -14,13 +15,16 @@ char output2[] = "And below that this tiny string appears char by char by char b
 char output3[] = "with random delays between 50 and 200 milliseconds (ms). So Cool!";
 char output4[] = "But every 20th char there is an extra delay of 300-500 ms.";
 
+
 void main(void)
 {
     srand(time(NULL));
 
     clearScreen();
-    fancyOutput(output1); // here the function above is called to output the string char by cchar with tiny pauses between
-    fancyOutput(output2); // here the function above is called to output the string char by cchar with tiny pauses between
-    fancyOutput(output3); // here the function above is called to output the string char by cchar with tiny pauses between
-    fancyOutput(output4); // here the function above is called to output the string char by cchar with tiny pauses between
+    checkAndSetConsoleDimensions();
+
+//    fancyOutput(output1); // here the function above is called to output the string char by cchar with tiny pauses between
+//    fancyOutput(output2); // here the function above is called to output the string char by cchar with tiny pauses between
+//    fancyOutput(output3); // here the function above is called to output the string char by cchar with tiny pauses between
+//    fancyOutput(output4); // here the function above is called to output the string char by cchar with tiny pauses between
 }

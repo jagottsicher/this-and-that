@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1604738328 source:/home/jens/development/this-and-that/fancyOutput/main.c
+1604834172 source:/home/jens/development/this-and-that/fancyOutput/main.c
 	<stdio.h>
+	<stdlib.h>
 	<math.h>
 	<time.h>
 	<unistd.h>
@@ -11,14 +12,16 @@
 	<stdio.h>
 	<stdlib.h>
 
-1604737905 source:/home/jens/development/this-and-that/fancyOutput/myFunctions.c
+1604839421 source:/home/jens/development/this-and-that/fancyOutput/myFunctions.c
 	<stdio.h>
+	<stdlib.h>
 	<math.h>
 	<time.h>
 	<unistd.h>
 	<stdbool.h>
+	<sys/ioctl.h>
 
-1604737898 /home/jens/development/this-and-that/fancyOutput/myFunctions.h
+1604839421 /home/jens/development/this-and-that/fancyOutput/myFunctions.h
 	<stdio.h>
 	<math.h>
 	<time.h>
