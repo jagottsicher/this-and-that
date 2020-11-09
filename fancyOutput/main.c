@@ -7,6 +7,9 @@
 #include <time.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <sys/ioctl.h>
+#include <string.h>
+#include <termios.h>
 
 #include "myFunctions.h"
 
@@ -15,16 +18,23 @@ char output2[] = "And below that this tiny string appears char by char by char b
 char output3[] = "with random delays between 50 and 200 milliseconds (ms). So Cool!";
 char output4[] = "But every 20th char there is an extra delay of 300-500 ms.";
 
+int menuItemMaxWidth = 0;
+int numberMenuItems = 8;
 
 void main(void)
 {
     srand(time(NULL));
 
     clearScreen();
-    checkAndSetConsoleDimensions();
+    menuItemMaxWidth = calculateMenuItemWidth(checkAndSetConsoleDimensions('x'), numberMenuItems);
+    printf(" %d", menuItemMaxWidth);
+    printMenu(numberMenuItems, menuItemMaxWidth);
+    // printf("%d", mygetch());
 
-//    fancyOutput(output1); // here the function above is called to output the string char by cchar with tiny pauses between
-//    fancyOutput(output2); // here the function above is called to output the string char by cchar with tiny pauses between
-//    fancyOutput(output3); // here the function above is called to output the string char by cchar with tiny pauses between
+
+    fancyOutput(output1); // here the function above is called to output the string char by cchar with tiny pauses between
+    fancyOutput(output2); // here the function above is called to output the string char by cchar with tiny pauses between
+    fancyOutput(output3); // here the function above is called to output the string char by cchar with tiny pauses between
+
 //    fancyOutput(output4); // here the function above is called to output the string char by cchar with tiny pauses between
 }

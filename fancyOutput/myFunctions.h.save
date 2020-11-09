@@ -13,4 +13,10 @@ void clearScreen();
 
 int returnRandom(int lower, int upper);
 
-int checkAndSetConsoleDimensions();
+void checkAndSetConsoleDimensions();
+
+void goToXY(int *x, int *y);
+
+int calculateMenuItemWidth(int maxWidth, int numberMenuItems);
+
+void printFrame(int maxWidth, int numberMenuItems);

@@ -1,18 +1,5 @@
 # depslib dependency file v1.0
-1604834172 source:/home/jens/development/this-and-that/fancyOutput/main.c
-	<stdio.h>
-	<stdlib.h>
-	<math.h>
-	<time.h>
-	<unistd.h>
-	<stdbool.h>
-	"myFunctions.h"
-
-1603775589 source:/home/jens/development/this-and-that/fancyOutput/pointersChallange-1.c
-	<stdio.h>
-	<stdlib.h>
-
-1604839421 source:/home/jens/development/this-and-that/fancyOutput/myFunctions.c
+1604927449 source:/home/jens/development/this-and-that/fancyOutput/main.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -20,11 +7,33 @@
 	<unistd.h>
 	<stdbool.h>
 	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+	"myFunctions.h"
 
-1604839421 /home/jens/development/this-and-that/fancyOutput/myFunctions.h
+1603775589 source:/home/jens/development/this-and-that/fancyOutput/pointersChallange-1.c
 	<stdio.h>
+	<stdlib.h>
+
+1604927680 source:/home/jens/development/this-and-that/fancyOutput/myFunctions.c
+	<stdio.h>
+	<stdlib.h>
 	<math.h>
 	<time.h>
 	<unistd.h>
 	<stdbool.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
+1604927108 /home/jens/development/this-and-that/fancyOutput/myFunctions.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
 
