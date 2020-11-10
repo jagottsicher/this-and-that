@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1604975422 source:/home/jens/development/this-and-that/tesla-vortex-math/main.c
+	<stdio.h>
+	<stdlib.h>
+

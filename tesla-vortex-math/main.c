@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+unsigned int doubleAnInteger(unsigned int input);
+unsigned int sumOfDigits(unsigned int input, int *ptr_counter);
+
+unsigned int doubleAnInteger(unsigned int input)
+{
+    input += input;
+
+    return input;
+}
+
+unsigned int sumOfDigits(unsigned int input, int *ptr_counter)
+{
+    unsigned int sum = 0;
+
+    while (input != 0 )
+    {
+        sum = sum + input % 10;
+        input = input/10;
+    }
+
+    if (sum >= 10)
+    {
+    sum = sumOfDigits(sum, ptr_counter);
+    }
+
+    // add 1 to value for variable pointer points to for every recursion
+    *ptr_counter = *ptr_counter + 1;
+    return sum;
+}
+
+void main()
+{
+    unsigned int i = 1;
+    unsigned int doubled = 1;
+    int depth = 1; // initializing with 1
+    int *ptr_depth = &depth; // set pointer to address of depth
+
+    do
+    {
+        printf("%d\tDouble: %d\tSum of Digits: %d (depth: %d)\n",i, doubleAnInteger(doubled), sumOfDigits(doubled, ptr_depth), *ptr_depth);
+        doubled = doubleAnInteger(doubled);
+        i++;
+        // reset depth before next loop
+        depth = 1;
+    }
+    while (i <= 30);
+}
