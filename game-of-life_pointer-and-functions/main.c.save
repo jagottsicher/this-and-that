@@ -33,8 +33,7 @@ bool function(array pointerA, array pointerB)
     copy arrayB to arrayC
     fill arrayB
     compare arrayB = arrayC
-        loop
-            if any object != returncode = 0 break else returncode = 1
+        if any object != returncode = 0 break else returncode = 1
 
 return returncode;
 
