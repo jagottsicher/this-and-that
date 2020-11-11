@@ -1,12 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+
+
+
+
+int main() 
+{
+
+// init random generator
+srand(time(NULL));
+
+
 
 /*
 
 main:
 get screen size
 
-init two pointers to arrays
+
+function allocate memory
+init three pointers to arrays
 counter = 0
 
 fill array1 with random numbers
@@ -22,7 +37,7 @@ do
     go_on = function pointer array2 pointer array1
 
 while bool go_on true
-
+}
 
 
 
@@ -33,7 +48,8 @@ bool function(array pointerA, array pointerB)
     copy arrayB to arrayC
     fill arrayB
     compare arrayB = arrayC
-        if any object != returncode = 0 break else returncode = 1
+        loop
+            if any object != returncode = 0 break else returncode = 1
 
 return returncode;
 

@@ -1,12 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+
+
+int width = 0;
+int height = 0;
+
+int main()
+{
+
+// init random generator
+srand(time(NULL));
+
+// clear screen
+clearScreen();
+
+// get screen size
+width = checkAndSetConsoleDimensions('x');
+height = checkAndSetConsoleDimensions('y');
+
+printf("%d/%d", width, height);
+
 
 /*
-
-main:
-get screen size
-
-init two pointers to arrays
+function allocate memory
+init three pointers to arrays
 counter = 0
 
 fill array1 with random numbers
@@ -22,7 +41,7 @@ do
     go_on = function pointer array2 pointer array1
 
 while bool go_on true
-
+}
 
 
 
@@ -40,3 +59,4 @@ return returncode;
 
 
 */
+}

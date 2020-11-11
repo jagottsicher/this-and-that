@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1605053660 source:/home/jens/development/this-and-that/game-of-life_pointer-and-functions/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+
+1605053692 source:/home/jens/development/this-and-that/game-of-life_pointer-and-functions/myFunctions.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
