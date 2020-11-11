@@ -27,6 +27,32 @@ bool *ptr_array1 = malloc((width * height) * sizeof(bool));
 bool *ptr_array2 = malloc((width * height) * sizeof(bool));
 bool *ptr_array3 = malloc((width * height) * sizeof(bool));
 
+ // Arrays mit 0 füllen.
+for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            *ptr_array1+((i * width) + j) = false;
+            *ptr_array1+((i * width) + j) = false;
+            *ptr_array1+((i * width) + j) = false;
+        }
+    }
+
+// Array1 in zwei geschachtelten for Schleifen mit zufällig mit 0 und 1 füllen
+for (i = 0; i < height; i++)
+    {
+        for (j = 0; j < width; j++)
+        {
+          (returnRandom(0,1) == 1)? {*ptr_array1+((i * width) + j) = true} : {*ptr_array1+((i * width) + j) = false}
+          // array1[j][i] = returnRandom(0,1);
+        }
+    }
+
+ 
+ 
+ 
+
+
 /*
 function allocate memory
 init three pointers to arrays
@@ -63,4 +89,7 @@ return returncode;
 
 
 */
+free (ptr_array1);
+free (ptr_array2);
+free (ptr_array3);
 }
