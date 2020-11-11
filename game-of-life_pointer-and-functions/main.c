@@ -22,6 +22,10 @@ height = checkAndSetConsoleDimensions('y');
 
 printf("%d/%d", width, height);
 
+// allocate memory for three pointers to arrays of size bool
+bool *ptr_array1 = malloc((width * height) * sizeof(bool));
+bool *ptr_array2 = malloc((width * height) * sizeof(bool));
+bool *ptr_array3 = malloc((width * height) * sizeof(bool));
 
 /*
 function allocate memory
