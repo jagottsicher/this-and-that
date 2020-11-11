@@ -6,6 +6,10 @@
 
 int width = 0;
 int height = 0;
+int generationCounter = 0;
+bool goOn = true;
+
+bool buildArray(bool *ptr_arrayA, bool *ptr_arrayB, bool *ptr_arrayC);
 
 int main()
 {
@@ -30,7 +34,7 @@ bool *ptr_array3 = malloc((width * height) * sizeof(bool));
  // Arrays mit 0 füllen.
 for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++)
+    for (int j = 0; j < width; j++)
         {
             (*(ptr_array1+((i * width) + j))) = false;
             (*(ptr_array2+((i * width) + j))) = false;
@@ -55,75 +59,98 @@ for (int i = 0; i < height; i++)
         }
     }
 
-// printout array1
- for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-           if ((*(ptr_array1+((i * width) + j))) == true)
-            {
-                printf("*");
-            }
-            else
-            {
-                printf(" ");
-            }
-        }
-    printf("\n");
-    }
-
-// printout array1
- for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-           if ((*(ptr_array2+((i * width) + j))) == true)
-            {
-                printf("*");
-            }
-            else
-            {
-                printf(" ");
-            }
-        }
-    printf("\n");
-    }
-
-
-
-/*
-function allocate memory
-init three pointers to arrays
-counter = 0
-
-fill array1 with random numbers
-
-clear screen
+clearScreen();
 
 do
- if counter = even do
-    show array1
-    go_on = function pointer array1 pointer array2
- else
-    show array2
-    go_on = function pointer array2 pointer array1
-
-while bool go_on true
+{
+if (generationCounter % 2 == 0)
+{
+//    goto 1/1
+printf("\33[%d;%dH", 1, 1);
+// printout array1
+for (int i = 0; i < height; i++)
+    {
+    for (int j = 0; j < width; j++)
+        {
+            if ((*(ptr_array1+((i * width) + j))) == true)
+            {
+                printf("*");
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
+    printf("\n");
+    }
+printf("\33[%d;%dH%d", height-2, width-5, generationCounter);
+goOn = buildArray(ptr_array1, ptr_array2, ptr_array3);
+}
+else
+{
+//    goto 1/1
+printf("\33[%d;%dH", 1, 1);
+// printout array2
+for (int i = 0; i < height; i++)
+    {
+    for (int j = 0; j < width; j++)
+        {
+            if ((*(ptr_array2+((i * width) + j))) == true)
+            {
+                printf("*");
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
+    printf("\n");
+    }
+printf("\33[%d;%dH%d", height-2, width-5, generationCounter);
+goOn = buildArray(ptr_array2, ptr_array1, ptr_array3);
 }
 
-bool function(array pointerA, array pointerB)
-    iterate through array
-    copy arrayB to arrayC
-    fill arrayB
-    compare arrayB = arrayC
-        loop
-            if any object != returncode = 0 break else returncode = 1
+// temporarily counter raising
+generationCounter++;
+// goOn = false;
 
-return returncode;
+}
+while (goOn == true);
 
-
-*/
 free (ptr_array1);
 free (ptr_array2);
 free (ptr_array3);
 }
+
+bool buildArray(bool *ptr_arrayA, bool *ptr_arrayB, bool *ptr_arrayC)
+{
+//    iterate through array
+//    copy arrayB to arrayC
+for (int i = 0; i < height; i++)
+    {
+    for (int j = 0; j < width; j++)
+        {
+            *(ptr_arrayC+((i * width) + j)) = *(ptr_arrayB+((i * width) + j));
+            // test only needed instead is
+            //    fill arrayB
+            *(ptr_arrayB+((i * width) + j)) = true;
+        }
+    }
+
+return true;
+}
+
+
+//bool function(array pointerA, array pointerB)
+//    iterate through array
+//    copy arrayB to arrayC
+//    fill arrayB
+//    compare arrayB = arrayC
+//        loop
+//            if any object != returncode = 0 break else returncode = 1
+//
+//return returncode;
+//*/
+
+
+
