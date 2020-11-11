@@ -32,9 +32,9 @@ for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            *ptr_array1+((i * width) + j) = false;
-            *ptr_array1+((i * width) + j) = false;
-            *ptr_array1+((i * width) + j) = false;
+            (*(ptr_array1+((i * width) + j))) = false;
+            (*(ptr_array2+((i * width) + j))) = false;
+            (*(ptr_array3+((i * width) + j))) = false;
         }
     }
 
@@ -43,12 +43,20 @@ for (i = 0; i < height; i++)
     {
         for (j = 0; j < width; j++)
         {
-          (returnRandom(0,1) == 1)? {*ptr_array1+((i * width) + j) = true} : {*ptr_array1+((i * width) + j) = false}
+          (returnRandom(0,1) == 1)? {(*(ptr_array1+((i * width) + j))) = true;} : (*(ptr_array1+((i * width) + j))) = false;}
           // array1[j][i] = returnRandom(0,1);
         }
     }
 
- 
+// printout array1
+ for (i = 0; i < height; i++)
+    {
+        for (j = 0; j < width; j++)
+        {
+           ((*(ptr_array1+((i * width) + j))) == true) ? printf("*") : printf(" ")
+        }
+    printf("\n");
+    }
  
  
 
@@ -72,10 +80,6 @@ do
 
 while bool go_on true
 }
-
-
-
-
 
 bool function(array pointerA, array pointerB)
     iterate through array
