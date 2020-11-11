@@ -20,7 +20,7 @@ clearScreen();
 width = checkAndSetConsoleDimensions('x');
 height = checkAndSetConsoleDimensions('y');
 
-printf("%d/%d", width, height);
+// printf("%d/%d", width, height);
 
 // allocate memory for three pointers to arrays of size bool
 bool *ptr_array1 = malloc((width * height) * sizeof(bool));
@@ -39,26 +39,56 @@ for (int i = 0; i < height; i++)
     }
 
 // Array1 in zwei geschachtelten for Schleifen mit zufällig mit 0 und 1 füllen
-for (i = 0; i < height; i++)
+for (int i = 0; i < height; i++)
     {
-        for (j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
-          (returnRandom(0,1) == 1)? {(*(ptr_array1+((i * width) + j))) = true;} : (*(ptr_array1+((i * width) + j))) = false;}
+            if (returnRandom(0,1) == 1)
+            {
+                (*(ptr_array1+((i * width) + j))) = true;
+            }
+            else
+            {
+                (*(ptr_array1+((i * width) + j))) = false;
+            }
           // array1[j][i] = returnRandom(0,1);
         }
     }
 
 // printout array1
- for (i = 0; i < height; i++)
+ for (int i = 0; i < height; i++)
     {
-        for (j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
-           ((*(ptr_array1+((i * width) + j))) == true) ? printf("*") : printf(" ")
+           if ((*(ptr_array1+((i * width) + j))) == true)
+            {
+                printf("*");
+            }
+            else
+            {
+                printf(" ");
+            }
         }
     printf("\n");
     }
- 
- 
+
+// printout array1
+ for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+           if ((*(ptr_array2+((i * width) + j))) == true)
+            {
+                printf("*");
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
+    printf("\n");
+    }
+
 
 
 /*

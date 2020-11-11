@@ -16,3 +16,20 @@
 	<string.h>
 	<termios.h>
 
+1605080800 source:/home/sj/development/this-and-that/game-of-life_pointer-and-functions/myFunctions.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
+1605081485 source:/home/sj/development/this-and-that/game-of-life_pointer-and-functions/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+
