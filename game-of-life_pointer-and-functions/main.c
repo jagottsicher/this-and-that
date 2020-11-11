@@ -81,9 +81,9 @@ for (int i = 0; i < height; i++)
                 printf(" ");
             }
         }
-    printf("\n");
+    // printf("\n");
     }
-printf("\33[%d;%dH%d", height-2, width-5, generationCounter);
+printf("\33[%d;%dH%d", height-2, width-10, generationCounter);
 goOn = buildArray(ptr_array1, ptr_array2, ptr_array3);
 }
 else
@@ -104,16 +104,13 @@ for (int i = 0; i < height; i++)
                 printf(" ");
             }
         }
-    printf("\n");
+    // printf("\n");
     }
-printf("\33[%d;%dH%d", height-2, width-5, generationCounter);
+printf("\33[%d;%dH%d", height-2, width-10, generationCounter);
 goOn = buildArray(ptr_array2, ptr_array1, ptr_array3);
 }
-
-// temporarily counter raising
+msleep(100);
 generationCounter++;
-// goOn = false;
-
 }
 while (goOn == true);
 
@@ -125,15 +122,73 @@ free (ptr_array3);
 bool buildArray(bool *ptr_arrayA, bool *ptr_arrayB, bool *ptr_arrayC)
 {
 //    iterate through array
-//    copy arrayB to arrayC
+//    copy arrayA to arrayC
+
+// check if identical if yes return false
+//for (int i = 0; i < height; i++)
+//    {
+//    for (int j = 0; j < width; j++)
+//        {
+//            if (*(ptr_arrayC+((i * width) + j)) == *(ptr_arrayA+((i * width) + j)))
+//                return false;
+//        }
+//    }
+
 for (int i = 0; i < height; i++)
     {
     for (int j = 0; j < width; j++)
         {
-            *(ptr_arrayC+((i * width) + j)) = *(ptr_arrayB+((i * width) + j));
+            *(ptr_arrayC+((i * width) + j)) = *(ptr_arrayA+((i * width) + j));
             // test only needed instead is
             //    fill arrayB
-            *(ptr_arrayB+((i * width) + j)) = true;
+            // *(ptr_arrayB+((i * width) + j)) = true;
+            int living_cells_around = 0;
+            // number of neighbors
+            if (*(ptr_arrayA+(((i-1) * width) + (j-1))) == true)
+                living_cells_around++;
+            if (*(ptr_arrayA+(((i-1) * width) + j)) == true)
+                living_cells_around++;
+            if (*(ptr_arrayA+(((i-1) * width) + (j+1))) == true)
+                living_cells_around++;
+            if (*(ptr_arrayA+((i * width) + (j-1))) == true)
+                living_cells_around++;
+            if (*(ptr_arrayA+((i * width) + (j+1))) == true)
+                living_cells_around++;
+            if (*(ptr_arrayA+(((i+1) * width) + (j-1))) == true)
+                living_cells_around++;
+            if (*(ptr_arrayA+(((i+1) * width) + j)) == true)
+                living_cells_around++;
+            if (*(ptr_arrayA+(((i+1) * width) + (j+1))) == true)
+                living_cells_around++;
+            // conclusion and actions
+            if (*(ptr_arrayA+((i * width) + j)) == true)
+            {
+                if (living_cells_around < 2)
+                    {
+                    *(ptr_arrayB+((i * width) + j)) = false;
+                    }
+                if (living_cells_around > 3)
+                    {
+                    *(ptr_arrayB+((i * width) + j)) = false;
+                    }
+                if ((living_cells_around == 2) || (living_cells_around == 3))
+                    {
+                    *(ptr_arrayB+((i * width) + j)) = true;
+                    }
+            }
+            else
+            {
+                *(ptr_arrayB+((i * width) + j)) = false;
+            }
+
+            if (*(ptr_arrayA+((i * width) + j)) == false)
+            {
+                if ((living_cells_around == 3))
+                {
+                *(ptr_arrayB+((i * width) + j)) = true;
+                }
+            }
+
         }
     }
 

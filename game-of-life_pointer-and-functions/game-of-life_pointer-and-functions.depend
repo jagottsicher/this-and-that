@@ -27,7 +27,7 @@
 	<string.h>
 	<termios.h>
 
-1605082841 source:/home/sj/development/this-and-that/game-of-life_pointer-and-functions/main.c
+1605087397 source:/home/sj/development/this-and-that/game-of-life_pointer-and-functions/main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
