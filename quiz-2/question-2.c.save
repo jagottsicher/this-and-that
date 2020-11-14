@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+#define int char
+
+int main()
+{
+    int =8;
+    printf("Size of (x) = %d", sizeof (x));
+}
