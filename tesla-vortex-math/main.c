@@ -6,7 +6,7 @@ unsigned int sumOfDigits(unsigned int input, int *ptr_counter);
 
 unsigned int doubleAnInteger(unsigned int input)
 {
-    input += input;
+    input *= 2;
 
     return input;
 }
@@ -18,7 +18,7 @@ unsigned int sumOfDigits(unsigned int input, int *ptr_counter)
     while (input != 0 )
     {
         sum = sum + input % 10;
-        input = input/10;
+        input = input / 10;
     }
 
     if (sum >= 10)
@@ -38,13 +38,14 @@ void main()
     int depth = 1; // initializing with 1
     int *ptr_depth = &depth; // set pointer to address of depth
 
-    do
-    {
-        printf("%d\tDouble: %d\tSum of Digits: %d (depth: %d)\n",i, doubleAnInteger(doubled), sumOfDigits(doubled, ptr_depth), *ptr_depth);
-        doubled = doubleAnInteger(doubled);
-        i++;
+    do {
         // reset depth before next loop
         depth = 1;
-    }
-    while (i <= 30);
+
+
+        int sum = sumOfDigits(doubled, ptr_depth);
+        printf("%d\tDouble: %d\tSum of Digits: %d (depth: %d)\n",i, doubleAnInteger(doubled), sum, *ptr_depth);
+        doubled = doubleAnInteger(doubled);
+        i++;
+    } while (i <= 30);
 }
