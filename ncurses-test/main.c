@@ -10,7 +10,9 @@ int main(int argc, char *argv[]) {
     int x = 0, y = 0;
     int max_y = 0, max_x = 0;
     int next_x = 0;
-    int direction = 1;
+    int next_y = 0;
+    int x_direction = 1;
+    int y_direction = 1;
 
     initscr();
     noecho();
@@ -22,15 +24,21 @@ int main(int argc, char *argv[]) {
     while (1) {
         getmaxyx(stdscr, max_y, max_x);
         clear();
-        mvprintw(y,x, "o");
+        mvprintw(y,x, "⬤");
         refresh();
-        msleep(10);
-        next_x = x + direction;
+        msleep(50);
+        next_x = x + x_direction;
+        next_y = y + y_direction;
 
         if (next_x >= max_x || next_x < 0) {
-            direction *= -1;
+            x_direction *= -1;
         } else {
-            x += direction;
+            x += x_direction;
+        }
+        if (next_y >= max_y || next_y < 0) {
+            y_direction *= -1;
+        } else {
+            y += y_direction;
         }
     }
 
