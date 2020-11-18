@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1605700291 source:/home/jens/development/this-and-that/ncurses-test/main.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+	<unistd.h>
+
