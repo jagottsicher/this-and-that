@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <sys/ioctl.h>
 
 // some little helpers
@@ -20,16 +21,17 @@ void main () {
 // clear screen
     clear();
     hideCursor();
-// get screen size and set to variables
-    int width = checkAndSetConsoleDimensions('x');
-    int height = checkAndSetConsoleDimensions('y');
+
 // animate circles in two loops growing and schrinking
     while (1) { // turn as forwever
-        for (int i = 0 ; i <= ((int)(width/7)); i++) {
-            drawAndRemoveCircle(i);
+        // get screen size and set to variables
+        int width = checkAndSetConsoleDimensions('x');
+        int height = checkAndSetConsoleDimensions('y');
+        for (int i = 0 ; i <= ((int)(width/7)-1); i++) {
+            drawAndRemoveCircle(i,(height/5));
         }
-        for (int i = ((int)(width/7)) ; i >= 0 ; i--) {
-            drawAndRemoveCircle(i);
+        for (int i = ((int)(width/7)) ; i >= 1 ; i--) {
+            drawAndRemoveCircle(i,(height/5));
         }
     }
 // cleanup
@@ -91,11 +93,11 @@ void removeCircle(int xm, int ym, int a, int b) {
     }
 }
 
-void drawAndRemoveCircle(int circleWidth) {
+void drawAndRemoveCircle(int circleWidth, int circleHeight) {
     // magic numbers for centre's x, y, height, and display time
-    makeCircle(70,20,circleWidth,10);
-    msleep(30);
-    removeCircle(70,20,circleWidth,10);
+    makeCircle((checkAndSetConsoleDimensions('x')/2),(checkAndSetConsoleDimensions('y')/2),circleWidth,circleHeight);
+    msleep(50);
+    removeCircle((checkAndSetConsoleDimensions('x')/2),(checkAndSetConsoleDimensions('y')/2),circleWidth,circleHeight);
 }
 
 // get width ('x') or height ('anykey') of the console

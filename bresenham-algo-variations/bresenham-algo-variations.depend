@@ -31,11 +31,9 @@
 	<string.h>
 	<termios.h>
 
-1606444925 source:/home/jens/development/this-and-that/bresenham-algo-variations/05_compact-full-circle-turning.c
+1606472863 source:/home/jens/development/this-and-that/bresenham-algo-variations/05_compact-full-circle-turning.c
 	<stdio.h>
 	<stdlib.h>
 	<unistd.h>
 	<sys/ioctl.h>
-	<string.h>
-	<termios.h>
 
