@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1606434285 source:/home/jens/development/this-and-that/bresenham-algo-variations/01_komplex-line.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
+1606434740 source:/home/jens/development/this-and-that/bresenham-algo-variations/02_compact-line.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
+1606434986 source:/home/jens/development/this-and-that/bresenham-algo-variations/03_komplex-full-circle.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
+1606435468 source:/home/jens/development/this-and-that/bresenham-algo-variations/04_compact-full-circle.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
+1606444925 source:/home/jens/development/this-and-that/bresenham-algo-variations/05_compact-full-circle-turning.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
