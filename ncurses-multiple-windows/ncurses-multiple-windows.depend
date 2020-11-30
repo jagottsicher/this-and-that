@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1606737200 source:/home/jens/development/this-and-that/ncurses-multiple-windows/main.c
+	<ncurses.h>
+	<unistd.h>
+
