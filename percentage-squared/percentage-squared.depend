@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1606655711 source:/home/jens/development/this-and-that/percentage-squared/main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+
