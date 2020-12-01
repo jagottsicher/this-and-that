@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1606704717 source:/home/jens/development/this-and-that/color-swatches/main.c
+1606706058 source:/home/jens/development/this-and-that/color-swatches/main.c
 	<stdio.h>
 	<stdlib.h>
 

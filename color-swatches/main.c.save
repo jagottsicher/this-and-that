@@ -25,6 +25,9 @@
 #define lightCyan 96
 #define white 97
 
+int msleep(long tms);
+
+
 char color[16][20] = {"black", "red", "green", "yellow", "blue", "magenta", "cyan", "lightGrey", "darkGrey", "lightRed", "lightGreen", "lightYellow", "lightBlue", "lightMagenta", "lightCyan", "white"};
 
 
@@ -35,16 +38,17 @@ int main()
     clearScreen();
     printf(" FG    BG+Colorname\n");
     for (int i = 30 ; i <= 37 ; i++) {
-        printf("\e[%im███ ",i);
-        printf("\e[0,3%i", i+10);
-        printf("\e[39m%s\n", color-30+i);
+        printf("\e[%dm███ \e[%dm ",i, i+10);
+        printf("\e[39m%s \n", color-30+i);
+        printf("\e[0m");
     }
     for (int i = 90 ; i <= 97 ; i++) {
-        printf("\e[%im███ ",i);
-        printf("\e[39m%s\n", color+8-90+i);
+        printf("\e[%dm███ \e[%dm ",i, i+10);
+        printf("\e[30m%s \n", color+8-90+i);
+        printf("\e[0m");
     }
 
     showCursor();
-    printf("\e[0,39;49m");
+    printf("\e[0m");
     return 0;
 }

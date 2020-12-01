@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1606791405 source:/home/jens/development/this-and-that/color-glow-effect/main.c
+	<stdio.h>
+	<stdlib.h>
+
