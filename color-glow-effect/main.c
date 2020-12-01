@@ -35,7 +35,7 @@ int main()
     int x = 3, y = 3
     clearScreen();
 
-printf("\e[0mNormal Text\e[0m \e[1mbold/bright (depending on Terminal Settings)\e[0m \e[2mDimmed Text\e[0m\n\n\e[4mUnderlined Text\e[0m \e[5mBlinking Text (on Xterm)\e[0m \e[7m Reverse / inverted \e[0m \e[8mHidden\e[0m<=Hidden\n\n\e[5m\e[7m Reverse / inverted and blinking \e[0m \e[1m\e[2m\e[4m\e[5m\e[7m colored bold dimmed underlined blinking reversed /inverted Text\e[0m\n\n\e[1m\e[2m\e[4m\e[5m\e[7m\e[31m colored bold dimmed underlined blinking reversed /inverted Text\e[0m \e[1m\e[4m\e[32m colored bold underlined\e[0m");
+printf("\e[0mNormal Text\e[0m \e[1mbold/bright (depending on Terminal Settings)\e[0m \e[2mDimmed Text\e[0m\n\n\e[4mUnderlined Text\e[0m \e[5mBlinking Text (on Xterm)\e[0m \e[7m Reverse / inverted \e[0m \e[8mHidden\e[0m<=Hidden\n\n\e[5m\e[7m Reverse / inverted and blinking \e[0m \e[1m\e[2m\e[4m\e[5m\e[7m colored bold dimmed underlined blinking reversed /inverted Text\e[0m\n\n\e[1m\e[2m\e[4m\e[5m\e[7m\e[31m colored bold dimmed underlined blinking reversed /inverted Text\e[0m \e[1m\e[4m\e[32m colored bold underlined \e[0m");
 
 for (int i = 1 ; i < 10 ; i++) {
     printf("\33[%d;%dH\e[31m█\n", 9,1);
@@ -50,17 +50,23 @@ for (int i = 1 ; i < 10 ; i++) {
     msleep(200);
 }
 
-for (int i = 1 ; i < 10 ; i++) {
+while (1) {
+    printf("\33[%d;%dH\e[90mGLOWING\n", 9,4);
+    msleep(100);
     printf("\33[%d;%dH\e[2mGLOWING\n", 9,4);
-    msleep(200);
+    msleep(175);
     printf("\33[%d;%dH\e[0mGLOWING\n", 9,4);
-    msleep(300);
+    msleep(250);
     printf("\33[%d;%dH\e[1mGLOWING\n", 9,4);
-    msleep(400);
+    msleep(600);
     printf("\33[%d;%dH\e[0mGLOWING\n", 9,4);
-    msleep(300);
-    printf("\33[%d;%dH\e[2mGLOWING\n", 2,4);
-    msleep(200);
+    msleep(250);
+    printf("\33[%d;%dH\e[2mGLOWING\n", 9,4);
+    msleep(175);
+    printf("\33[%d;%dH\e[90mGLOWING\n", 9,4);
+    msleep(100);
+    printf("\33[%d;%dH\e[30m       \n", 9,4);
+    msleep(50);
 }
 
     showCursor();
