@@ -10,12 +10,21 @@ int main(int argc, char *argv[]) {
     noecho();
     curs_set(FALSE);
 
+    // init color use and define two colorpairs
+    start_color();
+    init_pair(1,COLOR_WHITE,COLOR_BLUE);
+    init_pair(2,COLOR_BLACK, COLOR_YELLOW);
+
     // get our maximum window dimensions
     getmaxyx(stdscr, parent_y, parent_x);
 
     // set up initial windows
     WINDOW *field = newwin(parent_y - score_size, parent_x, 0, 0);
     WINDOW *score = newwin(score_size, parent_x, parent_y - score_size, 0);
+
+    //assign color to windows
+    wbkgd(field,COLOR_PAIR(1));
+    wbkgd(score,COLOR_PAIR(2));
 
     // draw our borders
     draw_borders(field);

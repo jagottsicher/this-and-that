@@ -1,0 +1,21 @@
+
+#include <ncurses.h>
+
+int main()
+{
+    int ch;
+    
+    initscr();
+    addstr("Type a few characters to checkout the returns from he getch() function.\n");
+    addstr("Type ~ to stop.\n");
+    refresh();
+    getch();
+    move(3,10);
+    printw("This is text on the fourth line wihch is intended 10 chars\n");
+    refresh();
+    getch();
+
+
+    endwin();
+    return 0;
+}

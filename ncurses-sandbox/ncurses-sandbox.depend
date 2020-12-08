@@ -1,0 +1,4 @@
+# depslib dependency file v1.0
+1607394689 source:/home/jens/development/this-and-that/ncurses-sandbox/02-getch-typewriter.c
+	<ncurses.h>
+
