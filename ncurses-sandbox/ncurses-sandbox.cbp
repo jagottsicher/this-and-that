@@ -14,6 +14,9 @@
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
+				<Linker>
+					<Add option="-lncurses" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/ncurses-sandbox" prefix_auto="1" extension_auto="1" />
@@ -25,12 +28,16 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-lncurses" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add option="-lncurses" />
+		</Linker>
 		<Unit filename="01-first-steps.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />

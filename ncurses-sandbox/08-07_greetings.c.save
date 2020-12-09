@@ -1,0 +1,17 @@
+
+#include <ncurses.h>
+
+int main () {
+    char first[32];
+    char last[32];
+    
+    initscr();
+    addstr("Given name: ");
+    getnstr(first,32);
+    ddstr("Family name: ");
+    getnstr(last,32);
+    printw("Hello, %s %s", first, last);
+    refrs
+    
+
+}
