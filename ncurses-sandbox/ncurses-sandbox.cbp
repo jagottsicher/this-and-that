@@ -88,6 +88,16 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="15-04_dumpwin.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="15-05_undump.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
