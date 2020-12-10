@@ -63,7 +63,27 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="12-05_scrup3.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="14-01_mousetest.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="14-02_mspy.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="14-04_bclick.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="15-01_cursset.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />

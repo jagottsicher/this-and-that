@@ -1,0 +1,114 @@
+.TH TMatrix 6 "16 January 2020" "TMatrix Version 1.3"
+.SH NAME
+TMatrix \- Terminal based replica of the digital rain from The Matrix
+.SH SYNOPSIS
+.nf
+\fItmatrix\fR [--version] [--help] [--mode=MODE]
+        [-s VALUE | --steps-per-sec=VALUE]
+        [-f RANGE | --fall-speed=RANGE] [-G RANGE | --start-gap=RANGE]
+        [-g RANGE | --gap=RANGE] [-l RANGE] [-r RANGE] [--fade]
+        [--no-fade] [-C COLOR | --color=COLOR]
+        [-c COLOR | --background=COLOR] [-t TEXT | --title=TEXT]
+.fi
+.SH DESCRIPTION
+Simulates the digital rain effect from The Matrix.
+.SH OPTIONS
+.TP 4
+\-\-version
+Output version information and exit.
+.TP 4
+\-\-help
+Display this help and exit.
+.TP 4
+\-\-mode=MODE
+Set the mode of the rain.
+.br
+Available modes: \fBdefault\fR, \fBdense\fR.
+.TP 4
+\-s, \-\-steps-per-sec=VALUE
+Run this many steps per second.
+.br
+VALUE can range from \fB1\fR to \fB60\fR.
+.br
+Default: \fI10\fR.
+.TP 4
+\-f, --fall-speed=RANGE
+Set the range for the fall speed.
+.br
+The maximal fall speed value is \fB10\fR.
+.br
+Default: \fI1,1\fR.
+.TP 4
+\-G, --start-gap=RANGE
+Set the range for the starting gaps.
+.br
+Default: \fI10,50\fR.
+.TP 4
+\-g, --gap=RANGE
+Set the range for the gaps between streaks.
+.br
+Default: \fI0,40\fR.
+.TP 4
+\-l RANGE
+Set the range for the length of rain streaks.
+.br
+The minimal length value is \fB1\fR.
+.br
+Default: \fI1,30\fR.
+.TP 4
+\-r RANGE
+Set the range for the character update rate.
+.br
+The values correspond to the number of steps before the change.
+.br
+\fB0\fR represents no change.
+.br
+Default: \fI10,20\fR.
+.TP 4
+\-\-fade
+Enable fading characters. (Default)
+.TP 4
+\-\-no\-fade
+Disable fading characters.
+.TP 4
+\-C, --color=COLOR
+Set the color of the characters.
+.br
+Available colors: \fBdefault\fR, \fBwhite\fR, \fBgray\fR, \fBblack\fR, \fBred\fR, \fBgreen\fR,
+.br
+\fByellow\fR, \fBblue\fR, \fBmagenta\fR, \fBcyan\fR.
+.br
+Default: \fIgreen\fR.
+.TP 4
+\-c, --background=COLOR
+Set the color of the background.
+.br
+Available colors: \fBdefault\fR, \fBwhite\fR, \fBgray\fR, \fBblack\fR, \fBred\fR, \fBgreen\fR,
+.br
+\fByellow\fR, \fBblue\fR, \fBmagenta\fR, \fBcyan\fR.
+.TP 4
+\-t, --title=TEXT
+Set the title that appears in the rain.
+.br
+\fINote\fR: the title needs to fit within the terminal window
+.br
+in order to be displayed.
+.PP
+RANGE is a pair of numbers separated by a comma: MIN,MAX.
+.br
+It specifies the boundaries of an integer set used in random operations.
+.SH Real-time commands
+.TP 4
+p
+Pause
+.TP 4
+q
+Quit
+.SH AUTHORS
+Written by Miloš Stojanović <mc.cm.mail@gmail.com>
+.SH LICENSE
+Copyright (C) 2018-2020 Miloš Stojanović
+.br
+SPDX-License-Identifier: GPL-2.0-only
+.SH SEE ALSO
+.BR cmatrix (1)
