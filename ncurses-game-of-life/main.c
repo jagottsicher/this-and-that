@@ -7,7 +7,7 @@ int STARTY = 0;
 int ENDX = 80;
 int ENDY = 24;
 
-#define CELL_CHAR '#'
+#define CELL_CHAR '*'
 #define TIME_OUT  100
 
 typedef struct _state {
