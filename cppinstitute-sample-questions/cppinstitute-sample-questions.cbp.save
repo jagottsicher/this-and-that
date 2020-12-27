@@ -58,6 +58,48 @@
 		</Unit>
 		<Unit filename="06.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="07.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="08.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="09.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="10.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="11.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="12.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="13.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="14.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
