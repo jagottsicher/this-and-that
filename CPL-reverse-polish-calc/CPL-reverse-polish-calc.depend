@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1609160833 source:/home/jens/development/this-and-that/CPL-reverse-polish-calc/main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+
