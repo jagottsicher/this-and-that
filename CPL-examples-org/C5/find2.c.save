@@ -10,13 +10,13 @@ main(int argc, char *argv[])
     // globals
     // max length of string
     char line[MAXLINE];
-    // linenumber
+    // linenumber 
     long lineno = 0;
-    // handler for options, indicator of exception wanted off(0)/on(1), indicator of numbering wanted off(0)/on(1), found (return value is 0 if not found, else times string was found once per line
+    // handler for options, indicator of exception wanted off(0)/on(1), indicator of numbering wanted off(0)/on(1), found (return value is 0 ifnot found, else line number 
     int c, except = 0, number = 0, found = 0;
-
+    
     // as long arguments left (decreased) AND the first char of the argument_1 is a minus
-    // so outer while checks for options, switches or indicators introduced by a minus
+    // so outer while checks for options, switches or indicators introduced by a minus 
     while (--argc > 0 && (*++argv)[0] == '-')
         // pointer argv is pointing to - now
         // so the following loop checks with *++argv[0] for first letter after that
@@ -58,7 +58,7 @@ main(int argc, char *argv[])
                     printf("%ld:", lineno);
                 // print the found line
                 printf("%s", line);
-                // raise indicator that string was found
+                // set indicator that s
                 found++;
             }
         }
