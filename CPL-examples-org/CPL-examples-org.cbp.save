@@ -947,8 +947,6 @@
 		</Unit>
 		<Unit filename="C8/free.c">
 			<Option compilerVar="CC" />
-			<Option compile="0" />
-			<Option link="0" />
 		</Unit>
 		<Unit filename="C8/fsize.c">
 			<Option compilerVar="CC" />
@@ -985,7 +983,10 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="C8/header.h" />
+		<Unit filename="C8/header.h">
+			<Option compile="1" />
+			<Option link="1" />
+		</Unit>
 		<Unit filename="C8/iobuf.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -993,18 +994,12 @@
 		</Unit>
 		<Unit filename="C8/malloc.c">
 			<Option compilerVar="CC" />
-			<Option compile="0" />
-			<Option link="0" />
 		</Unit>
 		<Unit filename="C8/malloctest.c">
 			<Option compilerVar="CC" />
-			<Option compile="0" />
-			<Option link="0" />
 		</Unit>
 		<Unit filename="C8/morecore.c">
 			<Option compilerVar="CC" />
-			<Option compile="0" />
-			<Option link="0" />
 		</Unit>
 		<Unit filename="C8/myopen.c">
 			<Option compilerVar="CC" />
@@ -1029,7 +1024,10 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="C8/syscalls.h" />
+		<Unit filename="C8/syscalls.h">
+			<Option compile="1" />
+			<Option link="1" />
+		</Unit>
 		<Unit filename="C8/testgetchar1.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "syscalls.h"
 
- #pragma linkage C
+#pragma linkage C
 
 #define free xfree
 #define malloc xalloc
