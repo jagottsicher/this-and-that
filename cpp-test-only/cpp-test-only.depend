@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1610888106 source:/home/jens/development/this-and-that/cpp-test-only/main.c
+	<stdio.h>
+	<errno.h>
+

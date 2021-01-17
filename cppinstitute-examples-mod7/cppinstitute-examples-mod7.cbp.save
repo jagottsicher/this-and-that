@@ -35,6 +35,16 @@
 		</Unit>
 		<Unit filename="main2-fread.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="main2-fread_new.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main_new.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Extensions />
 	</Project>
