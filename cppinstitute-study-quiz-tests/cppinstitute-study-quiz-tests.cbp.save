@@ -38,6 +38,11 @@
 		</Unit>
 		<Unit filename="mod5-quiz.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="mod6-quiz.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
