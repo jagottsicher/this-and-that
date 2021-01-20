@@ -2,7 +2,7 @@
 
 /* ######################################## */
 
-// ### 6.2.1 Module 1 - Quiz
+// ### 6.2.1 Module 6 - Quiz
 // ### QUESTION 1
 #include <stdio.h>s
 #include <stdlib.h>
@@ -13,23 +13,23 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-// ### 6.3.1 Module 1 - Test
+// ### 6.3.1 Module 6 - Test
 // ### QUESTION 1
 
 /* ######################################## */
 
-// ### 7.2.1 Module 1 - Quiz
+// ### 7.2.1 Module 7 - Quiz
 // ### QUESTION 1
 
-// ### 7.3.1 Module 1 - Test
+// ### 7.3.1 Module 7 - Test
 // ### QUESTION 1
 
 /* ######################################## */
 
-// ### 8.2.1 Module 1 - Quiz
+// ### 8.2.1 Module 8 - Quiz
 // ### QUESTION 1
 
-// ### 8.3.1 Module 1 - Test
+// ### 8.3.1 Module 8 - Test
 // ### QUESTION 1
 
 /* ######################################## */

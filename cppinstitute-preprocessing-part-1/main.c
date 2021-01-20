@@ -1,56 +1,55 @@
-#include <stdio.h>
-//#include "triangles.h"
+// ### Part 1
 
-void floydsTriangle(int size);
-void normalTriangle(int size);
+/* ######################################## */
 
-#define LOGINFO(funName) printf("Line %d, file %s, before %s\n", __LINE__, __FILE__, funName)
+// ### 1.2.1 Module 1 - Quiz
+// ### QUESTION 1
+#include <stdio.h>s
+#include <stdlib.h>
 
-int main()
+int main(int argc, char *argv[])
 {
-	int size;
-	scanf("%d", &size);
-	LOGINFO("normalTriangle");
-	normalTriangle(size);
-	LOGINFO("floydsTriangle");
-	floydsTriangle(size);
-	return 0;
+    printf("Hello world!\n");
+    return 0;
 }
 
-/* triangles.h */
-#ifndef __TRIANGLES_H__
-#define __TRIANGLES_H__
-void floydsTriangle(int size);
-void normalTriangle(int size);
-#endif
+// ### 1.3.1 Module 1 - Test
+// ### QUESTION 1
 
-/* floydsTriangles.c */
-#include <stdio.h>
-void floydsTriangle(int size)
-{
-	int i, j, k=1;
-	for (i = 0; i < size; i++)
-	{
-		for (j = 0; j<i; j++)
-		{
-			printf("%4d", k);
-			k++;
-		}
-		printf("\n");
-	}
-}
+/* ######################################## */
 
-/* normalTriangles.c */
-#include <stdio.h>
-void normalTriangle(int size)
-{
-	int i, j;
-	for(i = 0 ; i < size ; i++)
-	{
-		for(j=0; j<i ; j++)
-		{
-			printf("\\");
-		}
-		printf("\n");
-	}
-}
+// ### 2.2.1 Module 2 - Quiz
+// ### QUESTION 1
+
+// ### 2.3.1 Module 2 - Test
+// ### QUESTION 1
+
+/* ######################################## */
+
+// ### 3.2.1 Module 3 - Quiz
+// ### QUESTION 1
+
+// ### 3.3.1 Module 3 - Test
+// ### QUESTION 1
+
+/* ######################################## */
+
+// ### 4.2.1 Module 4 - Quiz
+// ### QUESTION 1
+
+// ### 4.3.1 Module 4 - Test
+// ### QUESTION 1
+
+/* ######################################## */
+
+// ### 5.2.1 Module 5 - Quiz
+// ### QUESTION 1
+
+// ### 5.3.1 Module 5 - Test
+// ### QUESTION 1
+
+/* ######################################## */
+
+// ### 5.4.1 SUMMARY (Part 1) - Test
+// ### QUESTION 1
+
