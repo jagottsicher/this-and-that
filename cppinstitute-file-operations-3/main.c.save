@@ -3,7 +3,7 @@
 
 int main()
 {
-	char buffer[10];
+	char buffer[100];
 	// opening source
 	FILE *fileSource = fopen("main.c", "r");
 	if (fileSource == NULL)
@@ -39,7 +39,7 @@ int main()
 		puts("Error opening file.");
 		return 1;
 	}
-	// read a line as long there is a line to read from the source into a buffer
+	// read a line as long there is a line to read from the source into a buffe
 	while (fgets(buffer, sizeof(buffer), fileSource))
 	{
 		// and write that buffered line to the destination
@@ -49,5 +49,5 @@ int main()
 	fclose(fileSource);
 	fclose(fileDestination);
 	return 0;
-	// 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+	// 1234567890
 }

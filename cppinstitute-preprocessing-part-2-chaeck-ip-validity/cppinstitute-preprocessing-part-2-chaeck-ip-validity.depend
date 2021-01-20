@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1610953517 source:/home/jens/development/this-and-that/cppinstitute-preprocessing-part-2-chaeck-ip-validity/main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+

@@ -3,7 +3,7 @@
 
 int main()
 {
-	char buffer[10];
+	char buffer[100];
 	// opening source
 	FILE *fileSource = fopen("main.c", "r");
 	if (fileSource == NULL)
@@ -17,7 +17,7 @@ int main()
 	// open a handler to a file in read mode only which becomes true (existing) in case the file exists
 	FILE *fileExistsHandler = fopen(filename, "r");
 
-	int triesLimit = 6; // try max 1000 times
+	int triesLimit = 5; // try max 1000 times
 	int triesCount = 0; // set counter to try
 	while(fileExistsHandler) // repeat until a not already existing file handler is found
 	{
@@ -39,7 +39,7 @@ int main()
 		puts("Error opening file.");
 		return 1;
 	}
-	// read a line as long there is a line to read from the source into a buffer
+	// read a line as long there is a line to read from the source into a buffe
 	while (fgets(buffer, sizeof(buffer), fileSource))
 	{
 		// and write that buffered line to the destination
@@ -49,5 +49,4 @@ int main()
 	fclose(fileSource);
 	fclose(fileDestination);
 	return 0;
-	// 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
 }

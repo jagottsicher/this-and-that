@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="mod-all-test.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="mod4-quiz.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -43,6 +46,13 @@
 		</Unit>
 		<Unit filename="mod6-quiz.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="mod8-quiz.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
