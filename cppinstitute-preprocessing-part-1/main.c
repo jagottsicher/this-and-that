@@ -1300,6 +1300,50 @@
 //}
 //
 ///* ######################################## */
+//// OFFTOPIC in Module 5
+//// WHAT IS THE DIFFERENCE BETWEEN
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(void)
+//{
+//    int i,j;
+//    int **p = (int **)malloc(2 * sizeof(int *));
+//    p[0] = (int *)malloc(2 * sizeof(int));
+//    p[1] = (int *)malloc(2 * sizeof(int));
+//
+//    for(i = 0; i < 2; i++)
+//      	for(j = 0; j < 2; j++)
+//       		p[i][j] = i + j;
+//    printf("%d",p[0][0]);
+//    return 0;
+//}
+
+// solution is 0
+
+//// COMPARED TO
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int i,j;
+    int **p = (int **)malloc(2 * sizeof(int *));
+    p[0] = (int *)malloc(2 * sizeof(int));
+    p[1] = p[0];
+
+    for(i = 0; i < 2; i++)
+      	for(j = 0; j < 2; j++)
+       		p[i][j] = i + j;
+
+	printf("%d",p[0][0]);
+    return 0;
+}
+
+// Solution is 1
+
 //
 //// ### 5.2.1 Module 5 - Quiz
 //// ### QUESTION 1
@@ -1530,6 +1574,8 @@
 //}
 //
 //// ### QUESTION 5
+//#include <stdio.h>
+//#include <stdlib.h>
 //void f(void) {
 //}
 //
@@ -1565,12 +1611,29 @@
 //int main(void)
 //{
 //    int t[2][2] = { 1, 2, 4, 8 };
+////    int t[2][2] = { {1, 2, 4}, {8, 0, 0}, {0, 0, 0} };
+//
 //
 //    int s = 0, i, j;
 //
-//    for(i = 2; i; i -= 2)
-//      	for(j = 1; j < 2; j += 2)
+//    for(i = 0; i < 2; i += 1){
+//      	for(j = 0; j < 2; j += 1){
+//       		printf("%d",t[i][j]);
+//        }
+//        printf("\n");
+//    }
+//
+//printf("\n");
+//
+//    // tricky here, dont mistake indecies and counters.
+//    // read from row 2-1 = 1, so the second (!) row
+//    for(i = 2; i; i -= 2){
+//      	// the element at column 1, but not any more
+//      	for(j = 1; j < 2; j += 2){
 //       		s += t[i - 1][j];
+//       		printf("%d\n",s);
+//        }
+//    }
 //    printf("%d",s);
 //    return 0;
 //}
@@ -1784,25 +1847,28 @@
 //
 //    int i = -1, j = 3;
 //
+//// j    3   2   1   0
+//// i    -2  -4  -8
 //    for(j > 0; j; j--)
 //      	i *= 2;
 //
 //    printf("%d", i + j);
 //    return 0;
 //}
-//
+
 //// ### QUESTION 2
-//0x22 is what interger?
+//0x22 is what integer?
 //
 //// ### QUESTION 3
-//#include <stdio.h>
-//
+#include <stdio.h>
+
 //int main(void)
 //{
 //    int i, t[4];
 //
 //    t[3] = 0;
-//
+//    //  i    1  0   -1
+//    //  t[i] 0  0   abbr
 //    for(i = 1; i >= 0; i--)
 //      	t[i] = t[3] * i;
 //
@@ -1866,7 +1932,10 @@
 //{
 //    int i = 3;
 //    int j = i - 1 / i;
-//
+//    // i    3
+//    // j    3   4
+//    //i-j   1
+//    printf("i=%d, j=%d, i-j=%d",i,j, i-j);
 //    switch(i - j) {
 //       	case  1: j--;
 //       	case  2: j++;
@@ -1880,11 +1949,17 @@
 //
 //// ### QUESTION 8
 ////value of var?
-//int var;
-//
-//var = 9;
-//var = var / 2;
-//
+    //#include <stdio.h>
+    //
+    //int main(void) {
+    //
+    //int var;
+    //
+    //var = 9;
+    //var = var / 2;
+    //printf("%d", var);
+    //}
+
 //// ### QUESTION 9
 //#include <stdio.h>
 //
@@ -1938,6 +2013,10 @@
 //
 //// ### QUESTION 12
 //// value of var?
+//#include <stdio.h>
+//
+//int main(void)
+//{
 //int var;
 //
 //var = 3;
@@ -1948,6 +2027,8 @@
 //var = var % var;
 //*/
 //var = var - 1;
+//printf("%d",var);
+//}
 //
 //// ### QUESTION 13
 //#include <stdio.h>
@@ -1957,6 +2038,8 @@
 //
 //    int i = 1, j = -1;
 //
+//    //  i   1   2   4   8   16
+//    //  j   -1  0   1   2   3
 //    for(;;) {
 //      	i *= 2;
 //       	j++;
@@ -1986,7 +2069,7 @@
 //
 //// ### QUESTION 16
 //// value of c?
-//#include >stdio.h<
+//#include <stdio.h>
 //
 //int main(void)
 //{
@@ -1994,7 +2077,9 @@
 //
 //    a = -1;
 //    b = 2;
-//
+//    // a    -1  -2
+//    // b    2   3
+//    // c    -6
 //    if(a)
 //      	a--;
 //    if(b)
@@ -2012,7 +2097,8 @@
 //int main(void)
 //{
 //    int i = 2, j = 0;
-//
+//    // i    2
+//    // j    0   5
 //    switch(i + 5) {
 //    case 1: j++;
 //    case 2: j++;
@@ -2025,7 +2111,7 @@
 //}
 //
 //// ### QUESTION 18
-//// two valod floats:
+//// two valid floats:
 //.1
 //-0.1
 //
@@ -2054,6 +2140,9 @@
 //int main(void)
 //{
 //    int i = 1, j = 1, k = -1;
+//    //  i   1
+//    //  j   1
+//    //  k   -1   0 OR 1 = 1     NOT 1 = 0
 //
 //    k = !i | j;
 //    k = !k;
@@ -2079,12 +2168,18 @@
 //
 //// ### QUESTION 23
 //// value of var?
+//#include <stdio.h>
+//
+//int main(void)
+//{
 //int var;
 //
-//var = -1;
-//var = var + 1;
-//var = var + var;
-//
+//var = -1; // -1
+//var = var + 1; // 0
+//var = var + var; // 0
+//printf("%d",var);
+//}
+
 //// ### QUESTION 24
 //French is a?
 //natural language.
@@ -2095,9 +2190,21 @@
 //int main(void)
 //{
 //    int i = -3, j = 0;
+//    //  i   -3  -1  1
+//    //  j   -1  -1  -1
+//    // i-j
 //
-//    for(i++; i++; i++)
+//    // only two of this three statements trigger
+//    // the first and the last
+//    // the middle one only evaluated, if true or not
+//    for(i++; i++; i++) {
 //      	j--;
+//      	// -1, -1, 0
+//      	printf("%d, %d, %d\n",i , j, i - j);
+//      	}
+//    // but after evaluation i is turned again, because for evaluation a second round is needed
+//    // 1, -1, 2
+//    printf("%d, %d, %d\n",i , j, i - j);
 //
 //    printf("%d", i - j);
 //    return 0;
@@ -2136,9 +2243,9 @@
 //
 //// ### QUESTION 28
 //// 013 eguals as an integer?
-//13
+// octal   0 1 2 3 4 5 6 7 10 11 12 13
+//dec      0 1 2 3 4 5 6 7  8  9 10 11
 //11
-//19
 //
 //// ### QUESTION 29
 //#include <stdio.h>
@@ -2147,8 +2254,8 @@
 //{
 //    int i = 2, j = 1, k;
 //
-//    k = i >> j;
-//    k <<= i;
+//    k = i >> j; // 1
+//    k <<= i; // 1 << 2 = 4
 //
 //    printf("%d", k);
 //    return 0;
@@ -2162,8 +2269,10 @@
 //{
 //    char s[5] = "ABC";
 //
-//    strcat(s + 1, "ABC");
+//    strcat(s + 1, "ABC"); // ABCABC
+//	printf("%s\n", s);
+//	printf("%s\n", s + 1);
 //
-//	printf("%d", s[0] - s[1]);
+//	printf("%d", s[0] - s[1]); // one minus one bigger = -1
 //    return 0;
 //}

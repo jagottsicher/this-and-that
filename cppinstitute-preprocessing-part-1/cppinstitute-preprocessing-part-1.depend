@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1611286239 source:/home/jens/development/this-and-that/cppinstitute-preprocessing-part-1/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+
