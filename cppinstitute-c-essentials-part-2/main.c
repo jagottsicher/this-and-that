@@ -3,6 +3,29 @@
 ///* ######################################## */
 //
 //// ### 6.2.1 Module 6 - Quiz
+//// found by chance
+//#include <stdio.h>
+//
+//int f1(int v) {
+//    v *= v;
+//    return v;
+//}
+//
+//int f2(int p1, int p2) {
+//    return p1 / p2;
+//}
+//
+//int main(void) {
+//    int v = 0;
+//    // f2 takes two ints 2/4 = 0.5 as int: 0
+//    // f1 of zero = anyway zero, but v different scope so stays 0
+//    // f1 of zero: same result
+//    f1(f1(f2(2,4)));
+//
+//    printf("%d",v);
+//    return 0;
+//}
+
 //// ### QUESTION 1
 //#include <stdio.h>
 //
@@ -127,8 +150,8 @@
 //    printf("%d",fun(fun(fun(fun(fun(3))))));
 //    return 0;
 //}
-//
-//// ### QUESTION 7
+
+// ### QUESTION 7
 //#include <stdio.h>
 //int fun(int n) {
 //    if(n == 0)
@@ -140,7 +163,7 @@
 //    printf("%d",fun(3));
 //    return 0;
 //}
-//
+
 //// ### QUESTION 8
 ////prog MARY HAD A LITTLE LAMB
 //
@@ -167,6 +190,10 @@
 //// ### QUESTION 10
 //#include <stdio.h>
 //char fun(char *n, int m) {
+//    // You are NOT handling over a String, but a pointer to the first char of a string
+//    // to that pointer (!) is added 2, so pointer arithmetric. makes it pointing to 'b'
+//    // you have a pointer to "bBcCdD" now. From this not element zero, but the single element 1,
+//    // means the char the pointer points to, so B (not b) is returned
 //    return (m+2)[n];
 //}
 //
