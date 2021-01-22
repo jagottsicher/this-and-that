@@ -1309,40 +1309,66 @@
 //int main(void)
 //{
 //    int i,j;
+//    // a pointer to a pointer allocating (int **) casted memory 2 times the size if int pointers
 //    int **p = (int **)malloc(2 * sizeof(int *));
+//    // a pointer allocating the memory of two times size of int
 //    p[0] = (int *)malloc(2 * sizeof(int));
+//    // this pointer allocating its own memory of two times size of int
 //    p[1] = (int *)malloc(2 * sizeof(int));
 //
+//    // here the values are filled in
 //    for(i = 0; i < 2; i++)
 //      	for(j = 0; j < 2; j++)
-//       		p[i][j] = i + j;
+//       		p[i][j] = i + j; // this means you write the sum of i and j as following
+//    //      int int
+//    // P[0] 0   1
+//    // P[1] 1   2
 //    printf("%d",p[0][0]);
 //    return 0;
 //}
-
-// solution is 0
+//// the is the reason the outcome value at p[0][0] is
+//// solution is 0
 
 //// COMPARED TO
 
-#include <stdio.h>
-#include <stdlib.h>
-
-int main(void)
-{
-    int i,j;
-    int **p = (int **)malloc(2 * sizeof(int *));
-    p[0] = (int *)malloc(2 * sizeof(int));
-    p[1] = p[0];
-
-    for(i = 0; i < 2; i++)
-      	for(j = 0; j < 2; j++)
-       		p[i][j] = i + j;
-
-	printf("%d",p[0][0]);
-    return 0;
-}
-
-// Solution is 1
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(void)
+//{
+//    int i,j;
+//    // a pointer to a pointer allocating (int **) casted memory 2 times the size if int pointers
+//    int **p = (int **)malloc(2 * sizeof(int *));
+//    // a pointer allocating the memory of two times size of int
+//    p[0] = (int *)malloc(2 * sizeof(int));
+//    // a pointer to the same memory already allocated for p[0]
+//    p[1] = p[0];
+//
+//    // What we have now?
+//    // we have two pointers each of the size you need to hold other pointers
+//    // one of those pointers p[0] points to memory allocated to hold two integer
+//    //
+//    // P[0] int0 int1
+//    // P[1] sameint0 sameint1
+//
+//    // here the values are filled in
+//    for(i = 0; i < 2; i++)
+//      	for(j = 0; j < 2; j++)
+//       		p[i][j] = i + j; // this means that when writing [1] int 0 and int 1, you reference the same spots at [0]
+//    // NOT THIS
+//    //      int int
+//    // P[0] 0   1
+//    // P[1] 1   2
+//    // BUT THIS
+//    //      int int
+//    // P[0] 1   2
+//    // P[1] 1   2
+//
+//	printf("%d",p[0][0]);
+//    return 0;
+//}
+//// the is the reason the outcome value at p[0][0] is
+//// Solution is 1
 
 //
 //// ### 5.2.1 Module 5 - Quiz
