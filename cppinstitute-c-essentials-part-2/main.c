@@ -204,57 +204,69 @@
 //
 //// ### 6.3.1 Module 6 - Test
 //// ### QUESTION 1
-//#include <stdio.h>
-//
+#include <stdio.h>
+
+// definition of a data type struct with one int member of same same
 //struct S {
 //    int S;
 //};
 //
 //int main(void) {
+//    // struct of same name
 //    struct S S;
+//    // in the member is stored the size of struct and size of implemenation = 1
 //    S.S = sizeof(struct S) / sizeof(S);
 //
 //    printf("%d", S.S);
 //    return 0;
 //}
+
 //
 //// ### QUESTION 2
-//#include <stdio.h>
-//
+#include <stdio.h>
+
+// struct holding one pointer to char
 //struct S {
 //    char *p;
 //};
 //
 //int main(void) {
+//    // pointer to string "abcd"
 //    char *p = "abcd";
+//    // 3 times struct in an array of pointer
 //    struct S S[2];
-//    int i;
+//        int i;
+//    //
+//    //  i       0       1       2
+//    //  S[].p   a       b       c (pointer to)
 //    for(i = 0; i < 2; i++)
 //      	S[i].p = p + i;
+//    // returns pointer at struct S[1] = b
 //    printf("%c",S[1].p[0]);
 //    return 0;
 //}
 //
 //// ### QUESTION 3
-//#include <stdio.h>
-//#include <string.h>
-//
-//struct Q {
-//    char S[3];
-//};
-//
-//struct S {
-//    struct Q Q;
-//};
-//
-//int main(void) {
-//    struct S S = { '\0', '\0','\0' };
-//    S.Q.S[0] = 'A';
-//    S.Q.S[2] = 'B';
-//
-//    printf("%d",strlen(S.Q.S));
-//    return 0;
-//}
+#include <stdio.h>
+#include <string.h>
+// struct definition of an array of 4 other structs
+struct Q {
+    char S[3];
+};
+
+// struct definition of a struct of struct
+struct S {
+    struct Q Q;
+};
+
+int main(void) {
+    struct S S = { '\0', '\0','\0' };
+    S.Q.S[0] = 'A';
+    S.Q.S[2] = 'B';
+
+    printf("%d",strlen(S.Q.S));
+    return 0;
+}
 //
 //// ### QUESTION 4
 //#include <stdio.h>
@@ -355,7 +367,7 @@
 //}
 //
 //// ### QUESTION 9
-//#include <stdio.h>
+////#include <stdio.h>
 //
 //int f(char t[]) {
 //    return t[1] - t[0];
@@ -368,7 +380,7 @@
 //    printf("%d",i);
 //    return 0;
 //}
-//
+
 //// ### QUESTION 10
 //#include <stdio.h>
 //
