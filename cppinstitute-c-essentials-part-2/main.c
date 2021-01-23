@@ -247,41 +247,48 @@
 //}
 //
 //// ### QUESTION 3
-#include <stdio.h>
-#include <string.h>
-// struct definition of an array of 4 other structs
-struct Q {
-    char S[3];
-};
-
-// struct definition of a struct of struct
-struct S {
-    struct Q Q;
-};
-
-int main(void) {
-    struct S S = { '\0', '\0','\0' };
-    S.Q.S[0] = 'A';
-    S.Q.S[2] = 'B';
-
-    printf("%d",strlen(S.Q.S));
-    return 0;
-}
+//#include <stdio.h>
+//#include <string.h>
+//// struct definition of an array of 4 other structs
+//struct Q {
+//    char S[3];
+//};
+//
+//// struct definition of a struct of struct
+//struct S {
+//    struct Q Q;
+//};
+//
+//int main(void) {
+//    struct S S = { '\0', '\0','\0' };
+//    // first and last Char are set, but second is still \0 so length reportet by strlen = 1
+//    S.Q.S[0] = 'A';
+//    S.Q.S[2] = 'B';
+//
+//    printf("%d",strlen(S.Q.S));
+//    return 0;
+//}
 //
 //// ### QUESTION 4
 //#include <stdio.h>
 //
+//// struct type S with one member int S
 //struct S {
 //    int S;
 //};
 //
+//// a function receiving struct type S
+//// changing strcut's member -1
 //int f(struct S s) {
 //    return --s.S;
 //}
 //
+//// main
 //int main(void) {
 //    int i;
+//    // setting up a struct and filling the (int) member inside with a 2
 //    struct S S = { 2 };
+//    // int equals return of function so: !
 //    i = f(S);
 //
 //    printf("%d",i);
@@ -305,23 +312,24 @@ int main(void) {
 //    S.Q.S[0] = 'A';
 //    S.Q.S[1] = 'B';
 //
+//    // strlen = 2 because member 0 and 1 changed to non-'\n'
 //    printf("%d",strlen(S.Q.S));
 //    return 0;
 //}
 //
 //// ### QUESTION 6
-//#include <stdio.h>
-//int f(char t[]) {
-//    return t[0] - t[-1];
-//}
-//
-//int main(void) {
-//    int i = 2;
-//    i -= f("ABDGK" + 1);
-//
-//    printf("%d",i);
-//    return 0;
-//}
+#include <stdio.h>
+int f(char t[]) {
+    return t[0] - t[-1];
+}
+
+int main(void) {
+    int i = 2;
+    i -= f("ABDGK" + 1);
+
+    printf("%d",i);
+    return 0;
+}
 //
 //// ### QUESTION 7
 //#include <stdio.h>
