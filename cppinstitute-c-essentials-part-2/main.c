@@ -1,4 +1,4 @@
-//// ### Part 2
+//// ### Part 2F
 //
 ///* ######################################## */
 //
@@ -203,8 +203,125 @@
 //}
 //
 //// ### 6.3.1 Module 6 - Test
+//// found by chance
+//#include <stdio.h>
+//
+//int i = 1;
+//int *f(void) {
+//    return &i;
+//}
+//
+//int main(void) {
+//    int i = 0;
+//    i = *f();
+//    printf("%d",i);
+//    return 0;
+//}
+
+//#include <stdio.h>
+//
+//int f(int t[]) {
+//    return t[0] + t[2];
+//}
+//
+//int main(void) {
+//    int i,a[] = { -2,-1,0,1,2 };
+//    i = f(a + 2);
+//
+//    printf("%d",i);
+//    return 0;
+//}
+//
+//#include <stdio.h>
+//
+//struct S {
+//    int a[2];
+//};
+//
+//int main(void) {
+//    struct S S[2];
+//    int i;
+//    for(i = 0; i < 2; i++)
+//      	S[i].a[1-i] = 4 * !i;
+//    printf("%d",S[0].a[1]);
+//    return 0;
+//}
+
+//#include <stdio.h>
+//int f(int t[2][]) {
+//    return t[0][0] + t[1][0];
+//}
+//
+//int main(void) {
+//    int i,a[2][2] = { {-2,-1},{1,2} };
+//    i = f(a + 2);
+//
+//    printf("%d",i);
+//    return 0;
+//}
+//
+
+//#include <stdio.h>
+//
+//int f(int t[][]) {
+//    return t[0][0] + t[1][0];
+//}
+//
+//int main(void) {
+//    int i,a[2][2] = { {-2,-1},{1,2} };
+//    i = f(a + 2);
+//
+//    printf("%d",i);
+//    return 0;
+//}
+
+//#include <stdio.h>
+//#include <string.h>
+//
+//void f(char *s,int i) {
+//    *(s + i) = '\0';
+//}
+//
+//int main(void) {
+//    char a[] = { 'a','b','c','d' };
+//    f(a+1,1);
+//
+//    printf("%d",strlen(a));
+//    return 0;
+//}
+
+//#include <stdio.h>
+//#include <string.h>
+//
+//void f(char *s,int i) {
+//    *(s + i) = '\0';
+//}
+//
+//int main(void) {
+//    char a[] = { 'a','b','c','d' };
+//    f(a[1],1);
+//
+//    printf("%d",strlen(a));
+//    return 0;
+//}
+//SEG FAULT!!!
+
+//#include <stdio.h>
+//int i = 2;
+//int *f(void) {
+//    return &i;
+//}
+//
+//int main(void) {
+//    int *i;
+//    i = f();
+//
+//    printf("%d",++(*i));
+//    return 0;
+//}
+
 //// ### QUESTION 1
-#include <stdio.h>
+//#include <stdio.h>
 
 // definition of a data type struct with one int member of same same
 //struct S {
@@ -223,9 +340,9 @@
 
 //
 //// ### QUESTION 2
-#include <stdio.h>
-
-// struct holding one pointer to char
+//#include <stdio.h>
+//
+//// struct holding one pointer to char
 //struct S {
 //    char *p;
 //};
@@ -245,7 +362,7 @@
 //    printf("%c",S[1].p[0]);
 //    return 0;
 //}
-//
+
 //// ### QUESTION 3
 //#include <stdio.h>
 //#include <string.h>
@@ -318,18 +435,18 @@
 //}
 //
 //// ### QUESTION 6
-#include <stdio.h>
-int f(char t[]) {
-    return t[0] - t[-1];
-}
-
-int main(void) {
-    int i = 2;
-    i -= f("ABDGK" + 1);
-
-    printf("%d",i);
-    return 0;
-}
+//#include <stdio.h>
+//int f(char t[]) {
+//    return t[0] - t[-1];
+//}
+//
+//int main(void) {
+//    int i = 2;
+//    i -= f("ABDGK" + 1); // i = 2 - 'B' - 'A' = 2 - 1 = 1
+//
+//    printf("%d",i);
+//    return 0;
+//}
 //
 //// ### QUESTION 7
 //#include <stdio.h>
@@ -341,12 +458,13 @@ int main(void) {
 //};
 //
 //int main(void) {
-//    struct S *x = malloc(sizeof(struct S));
-//    struct S *y = malloc(sizeof(struct S));
-//    x >a = 2;
-//    x >b = y;
-//    y >a = 4;
-//    y >b = x;
+//    struct S *x = malloc(sizeof(struct S)); // pointer of type struct S allocating memory
+//    struct S *y = malloc(sizeof(struct S)); // another pointer of type struct S allocating memory
+//    // small circling list, b->b->b-> has same meaning as one time b-> so x->b->a, so x referencing to y to its a equals 4
+//    x->a = 2;
+//    x->b = y;
+//    y->a = 4;
+//    y->b = x;
 //
 //    printf("%d",x->b->b->b->a);
 //    free(x); free(y);
@@ -375,7 +493,7 @@ int main(void) {
 //}
 //
 //// ### QUESTION 9
-////#include <stdio.h>
+//#include <stdio.h>
 //
 //int f(char t[]) {
 //    return t[1] - t[0];
@@ -383,6 +501,7 @@ int main(void) {
 //
 //int main(void) {
 //    int i = 2;
+//    // pointer to 'B" given into function, 'D' - 'B' = 2, 2 - 2 = 0
 //    i -= f("ABDGK" + 1);
 //
 //    printf("%d",i);
@@ -390,6 +509,7 @@ int main(void) {
 //}
 
 //// ### QUESTION 10
+// same like above
 //#include <stdio.h>
 //
 //struct Q {
@@ -437,29 +557,55 @@ int main(void) {
 //int main(void) {
 //    struct S *x = malloc(sizeof(struct S));
 //    struct S *y = malloc(sizeof(struct S));
-//    x >a = 2;
-//    x >b = y;
-//    y >a = 4;
-//    y >b = x;
+//    x->a = 2;
+//    x->b = y;
+//    y->a = 4;
+//    y->b = x;
 //
 //    printf("%d",x->b->b->b->a);
 //    free(x); free(y);
 //    return 0;
 //}
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//struct S {
+//    int	  a;
+//    struct S *b;
+//};
+//
+//int main(void) {
+//    struct S *x = malloc(sizeof(struct S));
+//    struct S *y = malloc(sizeof(struct S));
+//    struct S *p;
+//    x->a = 2;
+//    x->b = y;
+//    y->a = 4;
+//    y->b = x;
+//    p = x;
+//    p = p->b->b->b->b;
+//    // dont check too deep. all the mess above doesn't matter!
+//    printf("%d",p->a);
+//    free(x); free(y);
+//    return 0;
+//}
+
 //
 //// ### QUESTION 13
 //#include <stdio.h>
 //#include <string.h>
 //
 //void f(char *s,int i) {
+//    // *('c') = '\0', so String is now "ab\0d"
 //    *(s + i) = '\0';
 //}
 //
 //int main(void) {
-//    char a[] = { 'a','b','c','d' };
-//    f(a+1,1);
+//    char a[] = { 'a','b','c','d' }; // String "abcd"
+//    f(a+1,1); // f('b',1)
 //
-//    printf("%d",strlen(a));
+//    printf("%d",strlen(a)); // 2
 //    return 0;
 //}
 //
@@ -488,22 +634,34 @@ int main(void) {
 //int main(void) {
 //    int i,a[] = { -2,-1,0,1,2 };
 //    i = f(a + 2);
-//
+//    // 0 given into function, returning 2
 //    printf("%d",i);
 //    return 0;
 //}
 //
 //// ### QUESTION 16
 //#include <stdio.h>
+//// global value for i
 //int i = 2;
+//// printf("global i = %d\n",i);
+//
+//// f is a pointer to function and will return value 2
 //int *f(void) {
+//    printf("in f() = %d\n",i);
 //    return &i;
 //}
 //
 //int main(void) {
+//    // a pointer i is created, NOT a pointer to the global char i
 //    int *i;
+//    // i = 0, because here i is a pointer???
+//    printf("in main i =  %d\n",i);
 //    i = f();
+//    // now i (here) is 2
+//    printf("after f() i = %d\n",i);
+//    printf("*i = %d\n",*i);
 //
+//    // value of pointer raised by 1 = 3
 //    printf("%d",++(*i));
 //    return 0;
 //}
@@ -511,14 +669,18 @@ int main(void) {
 //// ### QUESTION 17
 //#include <stdio.h>
 //
+//// This i is in global scope
 //int i = 1;
+//// f returns the value if the global i so 1
 //int *f(void) {
 //    return &i;
 //}
 //
 //int main(void) {
+//    // i is local to main!
 //    int i = 0;
-//    i = *f();
+//    // Returnvalue!
+//    i = *f(); // i is set to 1
 //    printf("%d",i);
 //    return 0;
 //}
@@ -531,6 +693,7 @@ int main(void) {
 //
 //int main(void) {
 //    int i = 2;
+//    // 2 - f('B') = 2 - ('B' - 'A') = 2 - 1 = 1
 //    i -= f("ABDGK" + 1);
 //
 //    printf("%d",i);
@@ -551,6 +714,7 @@ int main(void) {
 //int main(void) {
 //    int i;
 //    struct S S = { 2 };
+//    // f(2) struct member is decremented by 1: 2 - 1 = 1
 //    i = f(S);
 //
 //    printf("%d",i);
@@ -565,11 +729,17 @@ int main(void) {
 //};
 //
 //int main(void) {
+//    // an array of structs type S (with two integer in)
 //    struct S S[2];
+//
 //    int i;
+////        a0 a1
+////    S 0  ?  4 <--- This is the value looking for
+////    S 1  0  ?
 //    for(i = 0; i < 2; i++)
 //      	S[i].a[1-i] = 4 * !i;
-//    printf("%d",S[0].a[1]);
+//
+//    printf("%d",S[0].a[1]); // is 4
 //    return 0;
 //}
 //
@@ -702,7 +872,7 @@ int main(void) {
 //stderr.log
 //nowhere
 //
-//// ### QUESTION 10
+// ### QUESTION 10
 //#include <stdio.h>
 //
 //int main(void) {
@@ -711,9 +881,14 @@ int main(void) {
 //    char *p = "DEF";
 //    int i=123;
 //    char c='\'';
+//    int size;
 //
 //    f = fopen("f", "wb");
-//    fprintf(f,"%d %s %s %c", i, s, p, c);
+//    // writing binary: so i is 3 byte, String ABC\0 i= 5 bytes, value pointer to DEF = 3 Bytes, string \' = 2 byte
+//    fprintf(f,"%d %s %s %s",i,s,p,c);
+//    fseek(f, 0, SEEK_END);
+//    size = ftell(f);
+//    printf("%d",size);
 //    fclose(f);
 //    return 0;
 //}
