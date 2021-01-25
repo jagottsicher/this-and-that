@@ -1625,6 +1625,55 @@
 //
 //// ### 8.5.1 SUMMARY (Part 1 & 2) - Test
 //// ### QUESTION 1
+//
+//#include <stdio.h>
+//int main(void) {
+//    int i, s = 0, t[] = {16, 8, 4, 2, 1, 0};
+//
+//    for(i = 5; t[i] > 2; i /= 2)
+//      	s += t[i];
+//
+//    printf("%d\n", s);
+//    return 0;
+//}
+
+//#include <stdio.h>
+//int main(void) {
+//    int i, s = 0, t[] = {16, 8, 4, 2, 1, 0};
+//
+//    for(i = 5; t[i] > 2; i /= 2)
+//      	s += t[i];
+//
+//    printf("%d\n", s);
+//    return 0;
+//}
+
+//#include <stdio.h>
+//
+//int main(void) {
+//    char s[20] = "?";
+//    printf("%s\n", s);
+//    //String = "?"
+//    FILE *f = fopen("fopen","w");
+//    int i = fputs("789",f);
+//    fclose(f);
+//    printf("Returnvalue i = %d\n", i);
+//    printf("%s\n", s);
+//    //Stream = "789"
+//    f = fopen("fopen","r");
+//    printf("%s\n", s);
+//    // fgets read size -1 chars and adds \0
+//    // this means at the Destination s +1, it read 2 bytes ("78") from stream f and adds \0
+//    // String s = "?78\0" char s[2] = '8' minus char s[3] = '\0' = 8
+//    fgets(s + 1,3,f);
+//    printf("%s\n", s);
+//    printf("%c\n", s[2]);
+//    printf("%c\n", s[3]);
+//    printf("%c\n", s[2] - s[3]);
+//    fclose(f);
+//    return 0;
+//}
+
 //#include <stdio.h>
 //
 //int main(void) {
