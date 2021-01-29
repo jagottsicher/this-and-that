@@ -1540,9 +1540,6 @@
 //
 //// ### 8.3.1 Module 8 - Test
 
-
-
-
 //#include <stdio.h>
 //#define A(x) ((x)?-1:0)
 //#define B(a) !(a)
@@ -1866,9 +1863,15 @@
 //#include <string.h>
 //
 //int main(void) {
+//    // creating a String of 20 elements (0-19)
 //    char tt[20] = "9081726354";
+//    // Copy to tt 1726354 to the char \
+//        9081726354\0  \
+//        1726354\0   \
+//        ============ \
+//        1726354\054\0 is the real content of tt
 //    strcpy(tt, tt + 3);
-//
+//    // 7 - '4' + '5' = 7 + 1 = 8
 //    printf("%d\n", strlen(tt) - tt[9] + '5');
 //    return 0;
 //}
@@ -1877,7 +1880,9 @@
 //#include <stdio.h>
 //int main(void) {
 //    int i = 1, j = 0, k;
+//    //      1   +       0   +   0       +   0
 //    k = (i >> j) + (j >> i) + (i >> i) + (j >> j);
+//    // 1 << by 1 is 2
 //    k <<= i;
 //
 //    printf("%d", k);
@@ -1889,12 +1894,16 @@
 //
 //int main(void) {
 //    char s[20] = "?";
+//    //789 is written to f
 //    FILE *f = fopen("fopen","w");
 //    int i = fputs("789",f);
 //    fclose(f);
+//    // to "?" are written 2 chars from f    \
+//        "?" turns into "?78"
 //    f = fopen("fopen","r");
 //    fgets(s + 1,3,f);
-//
+//    // 8 - 0 = 8 s[3] = "null" = 0 in a char array
+//    printf("%s\n", s[3]);
 //    printf("%c\n", s[2] - s[3]);
 //    fclose(f);
 //    return 0;
@@ -1906,14 +1915,22 @@
 //    int S[3];
 //};
 //
+//// 4 + 2 -4
 //void f(struct S S) {
+//    printf("Entering function f\n");
+//    printf("%d %d %d\n",S.S[0], S.S[1], S.S[2]);
 //    S.S[0] = S.S[1] + S.S[2] - 4;
+//    printf("%d %d %d\n",S.S[0], S.S[1], S.S[2]);
+//    printf("Leaving function f\n");
 //}
 //
 //int main(void) {
 //    struct S S = { { 1, 4, 2 } };
 //    f(S);
-//
+//    printf("Entering main again after leaving f\n");
+//    printf("%d %d %d\n",S.S[0], S.S[1], S.S[2]);
+//    // in main the value stays 1, 4, 2  \
+//        4 * 1 = 1
 //    printf("%d",S.S[1] * S.S[0]);
 //    return 0;
 //}
@@ -1924,7 +1941,10 @@
 //int main(void) {
 //    int x = 1, y = 1;
 //    float k = -1e0, m = 2e1;
+//    printf("%d %d %f %f\n", x,y,k,m);
+//    printf("%d %d %d %d %d\n", (x >= y), (x >= y), (k >= y), (m >= k), ('q' <= 'z'));
 //
+//    //                  1       1           0           1           1 = 4
 //    printf("%d\n", (x >= y) + (x >= y) + (k >= y) + (m >= k) + ('q' <= 'z'));
 //    return 0;
 //}
@@ -1936,9 +1956,11 @@
 //#include <stdio.h>
 //int main(void) {
 //
-//int X = 1;
-//int Y = X + 2;
-//
+//int X = 1; // 1
+//int Y = X + 2; // 3
+//// X = 1 0
+//// Y = 3 4 3
+//// Z = 4 0 / anything = 0
 //Y++;
 //int Z = Y;
 //--X;
@@ -1967,6 +1989,8 @@
 //int main(void) {
 //    char *s = "ABCDEFGHIJ";
 //    char  p = *f(g(f(s + 1)));
+//    // character is char value of f of g of f of 'B' = 'E'
+//    //'E' - 'A' equals 5 - 1 = 4
 //    printf("%d",p - 'A');
 //    return 0;
 //}
@@ -1985,7 +2009,7 @@
 //    return 0;
 //}
 //// 3
-
+//
 //#include <stdio.h>
 //
 //int main(void) {
@@ -1994,6 +2018,7 @@
 //    for(j = 0; j ; j--)
 //      	i *= 2;
 //
+//    // 2 + - 1 = 1
 //    printf("%d", i + j);
 //    return 0;
 //}
@@ -2003,10 +2028,16 @@
 //
 //int main(void) {
 //float X = 2.0;
-//X = X + X * 4;
-//X = X / X * X;
-//X = X / X + X;
-//    printf("%f", X);
+//    printf("%f\n", X);
+//
+//X = X + X * 4; // 10
+//    printf("%f\n", X);
+//
+//X = X / X * X; // 10
+//    printf("%f\n", X);
+//
+//X = X / X + X; // 11 , beacuxse 1 + 10 = 11
+//    printf("%f\n", X);
 //    return 0;
 //}
 //// 11.00000
@@ -2020,6 +2051,7 @@
 //
 //int main(void) {
 //    float x = 4;
+//    // returns somthing, BUT IS NOT RECEIVED, SO x stays 4
 //    f(x);
 //
 //    printf("%f", x);
@@ -2033,12 +2065,13 @@
 //int main(void) {
 //    char tt[20] = "0123456789";
 //    strcat(tt + 11, "123");
-//
+//    // 0123456789
+//    // 0123456789\0123\0
+//    // 10 - '8' + '0' = 2
 //    printf("%d\n", strlen(tt) - tt[8] + '0');
 //    return 0;
 //}
 ////2
-
 
 //#include <stdio.h>
 //
@@ -2059,10 +2092,13 @@
 //#include <stdio.h>
 //int main(void) {
 //    int i, s = 0, t[] = {16, 8, 4, 2, 1, 0};
-//
-//    for(i = 5; t[i] > 2; i /= 2)
+//    //i = 1;
+//    printf("i = %d, t[%d] = %d, s = %d\n",i,i, t[i],s);
+//    // Understand Value at t[5] = 0 so 0 > 2 is FALSE, so loop never entered!
+//    for(i = 5; t[i] > 2; i /= 2) {
 //      	s += t[i];
-//
+//        printf("i = %d, t[%d] = %d, s = %d\n",i,i, t[i],s);
+//    }
 //    printf("%d\n", s);
 //    return 0;
 //}
@@ -2096,23 +2132,23 @@
 //    return 0;
 //}
 //// 3
-//
-//#include <stdio.h>
-//
-//struct S {
-//    int S[3];
-//};
-//
-//void f(struct S *S) {
-//    S->S[2] = 6 * S->S[0] + S -> S[1];
-//}
-//
-//int main(void) {
-//    struct S S = { { 1, 2 } }, *P = &S;
-//    f(P);
-//    printf("%d",S.S[2] / S.S[0]);
-//    return 0;
-//}
+
+#include <stdio.h>
+
+struct S {
+    int S[3];
+};
+
+void f(struct S *S) {
+    S->S[2] = 6 * S->S[0] + S -> S[1];
+}
+
+int main(void) {
+    struct S S = { { 1, 2 } }, *P = &S;
+    f(P);
+    printf("%d",S.S[2] / S.S[0]);
+    return 0;
+}
 //// 8
 
 //legal float?
@@ -2121,6 +2157,7 @@
 //#include <stdio.h>
 //int main(void) {
 //int X;
+//// 1 time something below 1 = 0 (for any int)
 //X = ('r' - 's') * ('A' / 'Z');
 //    printf("%d",X);
 //}
@@ -2129,6 +2166,7 @@
 //#include <stdio.h>
 //int main(void) {
 //    char t[] = { 'x', 'z', 'Y', 'Z', '2' , '0'};
+//    // t[z - x - Z - Y + 3] - '0' = t[4] - '0' =  '2' - = '0' = 2
 //    printf("%d\n", t[t[1] - t[0] - t[3] + t[2] + 3] - t[5]);
 //    return 0;
 //}
@@ -2144,40 +2182,54 @@
 //
 //int main(void) {
 //    int i = 3, j = i - 2 * i;
+//    // 3 / -3 = -1
 //    switch(i / j) {
 //      	case  1: j++;
 //       	case  2: j--;
 //       	case  0: j++; break;
 //       	default: j = 0;
 //    }
-//
-//    printf("%d", ++j);
+//    // coming with j=0 of the switch
+//    printf("%d", ++j); // j=1
 //    return 0;
 //}
 //// propbably 1
 
+// TODO (jens#1#01/29/21): Understand the following
+// ???
 //#include <stdio.h>
 //#include <stdlib.h>
 //
 //int main(void) {
+//    // pointer to 1 (cast to float pointer) memory for float squared
 //    float *t = 1 + (float *) malloc(sizeof(float) * sizeof(float));
+//    // pointer to 1 byte + 2 floats
+//    printf("%f %f %f %f\n", *t, t[0], t[1], t[2]);
+//    // goto pointer -1
 //    t--;
+//    printf("%f %f %f %f\n", *t, t[0], t[1], t[2]);
+//    // Value at t = 8
 //    *t = 8.0;
+//    printf("%f %f %f %f\n", *t, t[0], t[1], t[2]);
+//    // at t1 value = 2
 //    t[1] = *t / 4.0;
+//    printf("%f %f %f %f\n", *t, t[0], t[1], t[2]);
+//
 //    t++;
+//    printf("%f %f %f %f\n", *t, t[0], t[1], t[2]);;
 //    t[-1] = *t / 2.0;
 //
 //    printf("%f\n", *t);
 //    free(--t);
 //    return 0;
 //}
-//// 2.00000
+// 2.00000
 
 //#include <stdio.h>
 //
 //int main(void) {
 //    char t[4][4];
-//
+//    //              16 bytes / 4 bytes = 4  size of a member = 1 to 4/1 = 4
 //    printf("%d\n",sizeof(t) / sizeof(t[0]) / sizeof(t[0][0]));
 //    return 0;
 //}
@@ -2191,7 +2243,9 @@
 //};
 //
 //int main(void) {
+//    // an Array with 3 members S0 S1 S2, organized as a list
 //    struct S S[] = { { 8, NULL }, { 4, &S[0] }, { 2, &S[1] } };
+//    // referencing from last's to first's structs' var value that is 8
 //    printf("%d", S[2].Str->Str->Var);
 //    return 0;
 //}
@@ -2213,7 +2267,7 @@
 //int main(void) {
 //    int i = 2;
 //    i = i - 2 * TWO;
-//
+//    // just calculate 2 - 2 * 1 + 1 like 2 - (2 * 1) + 1
 //    printf("%d\n", i);
 //    return 0;
 //}
@@ -2223,12 +2277,14 @@
 //
 //int main(void) {
 //    char *p = "\0\2\1\3\4";
-//
+//    // pointer to     2    +    2     +  0
 //	printf("%d\n", p[p[2]] + *(p + 1) + p[0]);
 //    return 0;
 //}
 //// 4
-//
+
+
+
 //#include <stdio.h>
 //int main(void) {
 //    float a = 3.14E0, *b = &a, **c = &b;
@@ -2238,16 +2294,23 @@
 //    return 0;
 //}
 //// 4.14000
-//
+
 //#include <stdio.h>
 //
 //int main(void) {
 //    int i = 5, j = i - 4 * i;
+//    // j = -15 !!!, then default and line after default executed, becuase of missing a break
+//    printf("%d\n", j);
 //    switch(j) {
+//       	printf("%d\n", j);
 //       	default: j = 2;
+//       	printf("%d\n", j);
 //       	case  1: j--; break;
+//       	printf("%d\n", j);
 //       	case  2: j++;
+//       	printf("%d\n", j);
 //       	case  0: j--; break;
+//       	printf("%d\n", j);
 //    }
 //
 //    printf("%d", j++);
@@ -2266,7 +2329,7 @@
 //int main(void) {
 //    char s[] = "ABCDEF";
 //    int i = strlen(f(1, s + 2));
-//
+//    // f(1, pointer to 'C') , returns pointer to 'B' after setting setting C +1+2, so 'F' to '\0’, returned is a pointer to "BCDE", means strlen = 4
 //    printf("%d\n", i);
 //    return 0;
 //}
@@ -2283,7 +2346,7 @@
 //int main(void) {
 //    struct S *S = (struct S *) malloc(sizeof(struct S));
 //    S -> S = "123\0""45678";
-//
+//    // 123\045678 strlen("5678") + Value at s[3] =  4 + 0 = 4
 //    printf("%d", strlen(S -> S + 5) + S -> S[3]);
 //    free(S);
 //    return 0;
@@ -2299,6 +2362,8 @@
 //
 //int main(void) {
 //    struct S S = { 'a', 'b', 'c', 'd' };
+//    // S[0] to S[3] "abcd",
+//    // size of 8 bytes - 4 + '\0' or 0 = 8-4 = 4
 //    printf("%d", sizeof(S.S) - strlen(S.S) + S.S[4]);
 //    return 0;
 //}
@@ -2312,11 +2377,11 @@
 //      	t[i] = 4 - i;
 //       	t[i + 1] = 2 * t[i];
 //    }
-//
+//    // Value at t[2] = 2 after loop, loop never executed with i = 3
 //    printf("%d\n", t[2]);
 //    return 0;
 //}
-//// 2
+////// 2
 
 //#include <stdio.h>
 //
@@ -2326,6 +2391,7 @@
 //
 //int main(void) {
 //    int arr[] = { 3, 2, 1, 0 };
+//    // Stelle -2 + 3 = 1, Value an arr[1] = 2
 //    printf("%d\n", fun(arr - 2));
 //    return 0;
 //}
