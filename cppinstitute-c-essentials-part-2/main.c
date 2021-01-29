@@ -2404,16 +2404,6 @@
 //// ### 8.5.1 SUMMARY (Part 1 & 2) - Test
 //// ### QUESTION 1
 //
-//#include <stdio.h>
-//int main(void) {
-//    int i, s = 0, t[] = {16, 8, 4, 2, 1, 0};
-//
-//    for(i = 5; t[i] > 2; i /= 2)
-//      	s += t[i];
-//
-//    printf("%d\n", s);
-//    return 0;
-//}
 
 //#include <stdio.h>
 //int main(void) {
@@ -2425,6 +2415,19 @@
 //    printf("%d\n", s);
 //    return 0;
 //}
+//// 0
+
+//#include <stdio.h>
+//int main(void) {
+//    int i, s = 0, t[] = {16, 8, 4, 2, 1, 0};
+//
+//    for(i = 5; t[i] > 2; i /= 2)
+//      	s += t[i];
+//
+//    printf("%d\n", s);
+//    return 0;
+//}
+//// 0
 
 //#include <stdio.h>
 //
@@ -2451,6 +2454,8 @@
 //    fclose(f);
 //    return 0;
 //}
+//// 8
+
 
 //#include <stdio.h>
 //
@@ -2466,6 +2471,10 @@
 //	printf("%d", ++j);
 //    return 0;
 //}
+//// 2
+
+
+
 //// ### QUESTION 2
 //#include <stdio.h>
 //#include <string.h>
@@ -2480,12 +2489,16 @@
 //    printf("%d", sizeof(S.S) - strlen(S.S) + S.S[3]);
 //    return 0;
 //}
+//// 2
+
 //// ### QUESTION 3
 //ptr is a pointer to void
 //void *ptr;
 //void ptr;
 //void **ptr;
 //not possible in C
+//
+
 //
 //// ### QUESTION 4
 //#include <stdio.h>
@@ -2500,7 +2513,9 @@
 //	printf("%d", i + j);
 //    return 0;
 //}
-//
+//// 4
+
+
 //// ### QUESTION 5
 //#include <stdio.h>
 //int main(void) {
@@ -2514,7 +2529,8 @@
 //	printf("%d\n", i);
 //    return 0;
 //}
-//
+//// 2
+
 //// ### QUESTION 6
 //#include <stdio.h>
 //#include <stdlib.h>
@@ -2531,6 +2547,8 @@
 //    free(t);
 //    return 0;
 //}
+// garbage???
+
 //// ### QUESTION 7
 //012 a valid integer literal?
 //10
@@ -2538,17 +2556,33 @@
 //18
 //invalid
 //
+
 //// ### QUESTION 8
+//#include <stdio.h>
+//
+//int main(void) {
 //int x = 1;
 //
 //x = x * x + 2;
 //x = x / x * 2;
 //x = x + 2 + x;
 //
+//printf("%d\n", x);
+//}
+//// 6
+
 //// ### QUESTION 9
+//#include <stdio.h>
+//
+//int main(void) {
+//
 //int x;
 //x = 'b' - 'a' * ('\' / '\');
 //
+//printf("%d\n", x);
+//}
+// Error!!!
+
 //// ### QUESTION 10
 //#include <stdio.h>
 //
@@ -2563,7 +2597,8 @@
 //	printf("%d\n", t[3]);
 //    return 0;
 //}
-//
+//// 4
+
 //// ### QUESTION 11
 //#include <stdio.h>
 //
@@ -2581,7 +2616,8 @@
 //    printf("%d",S.S[1] / S.S[0]);
 //    return 0;
 //}
-//
+//// 1
+
 //// ### QUESTION 12
 //Legal variable names?
 //R2D2
@@ -2589,6 +2625,7 @@
 //_R2D2_
 //2R2D
 //
+
 //// ### QUESTION 13
 //#include <stdio.h>
 //
@@ -2606,7 +2643,8 @@
 //    printf("%d",S.S[1] / S.S[0]);
 //    return 0;
 //}
-//
+//// 1
+
 //// ### QUESTION 14
 //#include <stdio.h>
 //
@@ -2624,7 +2662,9 @@
 //    printf("%d",S.S[1] / S.S[0]);
 //    return 0;
 //}
-//
+//// 1
+
+
 //// ### QUESTION 15
 //valid integer in C?
 //3,141592
@@ -2632,6 +2672,7 @@
 //3.141592
 //3_141_592
 //
+
 //// ### QUESTION 16
 //0x12 as integer?
 //10
@@ -2639,6 +2680,7 @@
 //18
 //invalid
 //
+
 //// ### QUESTION 17
 //Legal variable name?
 //Alpha:Omega
@@ -2646,6 +2688,7 @@
 //Alpha-Omega
 //Alpha@Omega
 //
+
 //// ### QUESTION 18
 //#include <stdio.h>
 //
@@ -2659,7 +2702,9 @@
 //    printf("%d\n", fun(arr[3]) + arr[2]);
 //    return 0;
 //}
-//
+//// 4
+
+
 //// ### QUESTION 19
 //#include <stdio.h>
 //
@@ -2673,7 +2718,9 @@
 //	printf("%d", i + j);
 //    return 0;
 //}
-//
+//// 1
+
+
 //// ### QUESTION 20
 //#include <stdio.h>
 //
@@ -2686,7 +2733,8 @@
 //    printf("%d", k);
 //    return 0;
 //}
-//
+//// 1
+
 //// ### QUESTION 21
 //#include <stdio.h>
 //
@@ -2703,7 +2751,8 @@
 //	printf("%d", ++j);
 //    return 0;
 //}
-//
+//// 4
+
 //// ### QUESTION 22
 //#include <stdio.h>
 //
@@ -2722,11 +2771,18 @@
 //    printf("%d", p - 'A');
 //    return 0;
 //}
-//
+//// 8
+
 //// ### QUESTION 23
+//#include <stdio.h>
+//
+//int main(void) {
 //int x = 1, y = 2, z;
 //z = x / y * --x * y++;
-//
+//printf("%d\n",z);
+//}
+//// 0
+
 //// ### QUESTION 24
 //#include <stdio.h>
 //
@@ -2740,7 +2796,8 @@
 //    printf("%d\n", fun(arr + 2));
 //    return 0;
 //}
-//
+//// 1
+
 //// ### QUESTION 25
 //#include <stdio.h>
 //
@@ -2750,7 +2807,9 @@
 //    printf("%d\n", p[p[1]] + *(p + 1) + p[4]);
 //    return 0;
 //}
-//
+//// 8
+
+
 //// ### QUESTION 26
 //#include <stdio.h>
 //int main(void) {
@@ -2761,7 +2820,9 @@
 //    printf("%d\n", (a > b) + (b > a) + (i > j) + (j > i) + ('z' > 'a'));
 //    return 0;
 //}
-//
+//// 3
+
+
 //// ### QUESTION 27
 //#include <stdio.h>
 //#include <string.h>
@@ -2773,7 +2834,8 @@
 //    printf("%d\n", strlen(tt) - tt[9] + '5');
 //    return 0;
 //}
-//
+//// 4
+
 //// ### QUESTION 28
 //#include <stdio.h>
 //
@@ -2788,7 +2850,8 @@
 //    fclose(f);
 //    return 0;
 //}
-//
+//// 4
+
 //// ### QUESTION 29
 //#include <stdio.h>
 //
@@ -2800,7 +2863,8 @@
 //    printf("%f", x);
 //    return 0;
 //}
-//
+//// 2.00000
+
 //// ### QUESTION 30
 //#include <stdio.h>
 //#include <string.h>
@@ -2818,7 +2882,9 @@
 //    free(S);
 //    return 0;
 //}
-//
+//// 1
+
+
 //// ### QUESTION 31
 //#include <stdio.h>
 //
@@ -2833,7 +2899,9 @@
 //    printf("%d", i);
 //    return 0;
 //}
-//
+//// 4
+
+
 //// ### QUESTION 32
 //#include <stdio.h>
 //
@@ -2848,7 +2916,9 @@
 //	printf("%d\n", t[0]);
 //    return 0;
 //}
-//
+//// 0
+
+
 //// ### QUESTION 33
 //#include <stdio.h>
 //
@@ -2858,7 +2928,9 @@
 //    printf("%d\n", p[*p] - t[2]);
 //    return 0;
 //}
-//
+//// 2
+
+
 //// ### QUESTION 34
 //Legal floating point in C?
 //3.1415M92
@@ -2866,6 +2938,7 @@
 //3.1415X92
 //3.1415F92
 //
+
 //// ### QUESTION 35
 //#include <stdio.h>
 //
@@ -2876,7 +2949,8 @@
 //    printf("%c", a);
 //    return 0;
 //}
-//
+//// B
+
 //// ### QUESTION 36
 //#include <stdio.h>
 //
@@ -2889,7 +2963,8 @@
 //	printf("%d\n", s);
 //    return 0;
 //}
-//
+//// 2
+
 //// ### QUESTION 37
 //#include <stdio.h>
 //#include <string.h>
@@ -2901,7 +2976,9 @@
 //    printf("%d\n", strlen(tt) - tt[5] + '0');
 //    return 0;
 //}
-//
+//// 8
+
+
 //// ### QUESTION 38
 //#include <stdio.h>
 //
@@ -2920,7 +2997,8 @@
 //    printf("%d",S.S[1] / S.S[0]);
 //    return 0;
 //}
-//
+//// 2
+
 //// ### QUESTION 39
 //Which is -1E-1 in C?
 //-0.01
@@ -2928,6 +3006,7 @@
 //-0.1
 //invalid
 //
+
 //// ### QUESTION 40
 //#include <stdio.h>
 //
@@ -2937,7 +3016,8 @@
 //    printf("%d\n",sizeof(t) / sizeof(t[0]) / sizeof(t[0][0]));
 //    return 0;
 //}
-//
+//// 1
+
 //// ### QUESTION 41
 //Valid declaration?
 //int longint;
@@ -2945,6 +3025,7 @@
 //int float;
 //int int;
 //
+
 //// ### QUESTION 42
 //#include <stdio.h>
 //
@@ -2954,7 +3035,9 @@
 //    printf("%d\n", t[t[1] - t[0] - t[3] + t[2] + 3] - t[4]);
 //    return 0;
 //}
-//
+//// 0
+
+
 //// ### QUESTION 43
 //void (*f)(int);
 //f is a function (int) returning pointer to void;
@@ -2962,6 +3045,7 @@
 //f is a pointer to a function returning void;
 //invalid
 //
+
 //// ### QUESTION 44
 //#include <stdio.h>
 //
@@ -2977,7 +3061,9 @@
 //    printf("%d",i);
 //    return 0;
 //}
-//
+//// 2
+
+
 //// ### QUESTION 45
 //#include <stdio.h>
 //
@@ -2991,7 +3077,8 @@
 //    printf("%d", S[2].Str->Str->Var);
 //    return 0;
 //}
-//
+//// 8
+
 //// ### QUESTION 46
 //#include <stdio.h>
 //
@@ -3004,7 +3091,8 @@
 //    printf("%d", i + j);
 //    return 0;
 //}
-//
+//// 1
+
 //// ### QUESTION 47
 //#include <stdio.h>
 //int main(void) {
@@ -3015,14 +3103,21 @@
 //	printf("%d", k);
 //    return 0;
 //}
-//
+//// 2
+
 //// ### QUESTION 48
+//#include <stdio.h>
+//
+//void main (void) {
 //int x = 1;
 //
 //x = x + 2 * x;
 //x = x / 2 * x;
 //x = x + 2 + x;
-//
+//printf("%d\n",x);
+//}
+//// 8
+
 //// ### QUESTION 49
 //#include <stdio.h>
 //#define  ABC    10
@@ -3035,7 +3130,8 @@
 //    printf("%d\n", i);
 //    return 0;
 //}
-//
+//// 8
+
 //// ### QUESTION 50
 //#include <stdio.h>
 //
@@ -3048,3 +3144,4 @@
 //	printf("%d", i + j);
 //    return 0;
 //}
+//// 2
