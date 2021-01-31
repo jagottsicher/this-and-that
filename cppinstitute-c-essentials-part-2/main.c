@@ -2406,24 +2406,34 @@
 //
 
 //#include <stdio.h>
+//
 //int main(void) {
-//    int i, s = 0, t[] = {16, 8, 4, 2, 1, 0};
+//    int i = 5, j = 4;
+//    // starts with 5 into the loop but right after entering
+//    // i = 3, j=4
+//    // in the loop J is decremented, so j = 3
+//    // after second loop
+//    // i=1, j=2
+//    // i ist testet and 0, so loop left afterwards i decremented by 2
+//    for(i--; i--; i--) {
+//        printf("i=%d, j=%d\n", i, j);
+//      	j--;
+//    }
+//    // i=-1 , j = 2
+//    printf("i=%d, j=%d\n", i, j);
 //
-//    for(i = 5; t[i] > 2; i /= 2)
-//      	s += t[i];
-//
-//    printf("%d\n", s);
+//    printf("%d", i + j);
 //    return 0;
 //}
-//// 0
+//// 1
 
 //#include <stdio.h>
 //int main(void) {
 //    int i, s = 0, t[] = {16, 8, 4, 2, 1, 0};
-//
+//    // never executing loop, because t[5]=0 is not > 0
 //    for(i = 5; t[i] > 2; i /= 2)
 //      	s += t[i];
-//
+//    // s = 0
 //    printf("%d\n", s);
 //    return 0;
 //}
@@ -2438,15 +2448,22 @@
 //    FILE *f = fopen("fopen","w");
 //    int i = fputs("789",f);
 //    fclose(f);
-//    printf("Returnvalue i = %d\n", i);
+//    // i catches the fputs return value
+//    printf("value i = %d\n", i);
+//    // s untouched
 //    printf("%s\n", s);
+//
 //    //Stream = "789"
 //    f = fopen("fopen","r");
 //    printf("%s\n", s);
 //    // fgets read size -1 chars and adds \0
-//    // this means at the Destination s +1, it read 2 bytes ("78") from stream f and adds \0
+//    // this means at the Destination s + 1, it read 2 bytes ("78") from stream f and adds \0
 //    // String s = "?78\0" char s[2] = '8' minus char s[3] = '\0' = 8
 //    fgets(s + 1,3,f);
+//    // TAKEAWAYS
+//    // fputs returns an int on success, but EOF in case of an error
+//    // fputs does NOT append '\n' at the end of a line
+//    // fgets reads SIZE-1 chars from stream
 //    printf("%s\n", s);
 //    printf("%c\n", s[2]);
 //    printf("%c\n", s[3]);
@@ -2473,6 +2490,28 @@
 //}
 //// 2
 
+//#include <stdio.h>
+//
+//int main(void) {
+//    // Char is 1 byte = 8 bit
+//    char  *t1[10]; // This is a pointer array with 10 members, so these ARE TEN POINTERS to char
+//    char (*t2)[10]; // is a pointer to a array of chars with 10 members, so it is ONE Pointer only
+//    // size of a Char = 1 byte
+//    char c = "A";
+//    printf("Size of a char is %d\n", sizeof(c));
+//    // size of a pointer to that char = 8 bytes
+//    char *p = c;
+//    printf("Size of a pointer to that char is %d\n", sizeof(p));
+//    // sizes:
+//    // t1=80
+//    // t2=8
+//    // so 80 == 8 is 0. zero + the size of one member of
+//    printf("sizeof(t1)=%d  sizeof(t2)=%d  sizeof(t1[0])=%d\n", sizeof(t1), sizeof(t2), sizeof(t1[0]));
+//
+//    printf("%d",(sizeof(t1) == sizeof(t2)) + sizeof(t1[0]));
+//    return 0;
+//}
+//// 8
 
 
 //// ### QUESTION 2
@@ -2485,7 +2524,7 @@
 //
 //int main(void) {
 //    struct S S = { 'a', 'b' };
-//
+//    // 4 bytes - 2 + '\0' = 2
 //    printf("%d", sizeof(S.S) - strlen(S.S) + S.S[3]);
 //    return 0;
 //}
@@ -2521,14 +2560,26 @@
 //int main(void) {
 //
 //    int i = 0;
-//    if(i = 1)
+//    printf("%d\n", i);
+//    printf("%d\n", (i=1));
+//    // (i=1) IS NOT (i==1)
+//    // so the if becomes true
+//    // so i = 2
+//    if(i = 1){
 //        i = 2;
-//    else
+//        printf("%d\n", i);
+//    }
+//    else {
 //        i = 3;
+//        printf("%d\n", i);
+//    }
 //
 //	printf("%d\n", i);
 //    return 0;
 //}
+// TAKEAWAY
+// It is never as easy as it appears on the first look
+// read carefully!
 //// 2
 
 //// ### QUESTION 6
@@ -2536,18 +2587,28 @@
 //#include <stdlib.h>
 //
 //int main(void) {
-//    int *t = (int *) malloc(sizeof(int) + sizeof(int));
+//    int *t = (int *)malloc(sizeof(int) + sizeof(int));
+//    // prints a garbage value at the reserves mem
+//    printf("%d\n", *t);
 //    t++;
+//    // pointer points now to another garbage mem
+//    printf("%d\n", *t);
+//    // value there becomes 8
 //    *t = 8;
-//    t[ 1] = *t / 2;
-//    t--;
+//    printf("%d\n", *t);
+//    // t[1] becomes 4, *t value still 8
 //    t[1] = *t / 2;
-//
+//    printf("%d\n", *t);
+//    t--;
+//    printf("%d\n", *t);
+//    t[1] = *t / 2;
 //    printf("%d\n", *t);
 //    free(t);
 //    return 0;
 //}
 // garbage???
+// probably it shall be shown, that the pointer can point to 8 and change value somewhere else and then point there only once the division by 2 takes is shown by pointer
+// Maybe 4 ?
 
 //// ### QUESTION 7
 //012 a valid integer literal?
@@ -2562,12 +2623,13 @@
 //
 //int main(void) {
 //int x = 1;
-//
-//x = x * x + 2;
-//x = x / x * 2;
-//x = x + 2 + x;
-//
-//printf("%d\n", x);
+//printf("%d\n", x); // 1
+//x = x * x + 2;     // 1*1 + 2 = 3
+//printf("%d\n", x); // 3
+//x = x / x * 2;     // 3/3 * 2 = 2
+//printf("%d\n", x); // 2
+//x = x + 2 + x;     // 2 + 2 + 2 = 6
+//printf("%d\n", x); // 6
 //}
 //// 6
 
@@ -2613,6 +2675,7 @@
 //int main(void) {
 //    struct S S = { { 4, 8 } }, *P = &S;
 //    f(P);
+//    // an integer of the division 6/4 is 1 only
 //    printf("%d",S.S[1] / S.S[0]);
 //    return 0;
 //}
@@ -2620,10 +2683,10 @@
 
 //// ### QUESTION 12
 //Legal variable names?
-//R2D2
-//_2R2D_
-//_R2D2_
-//2R2D
+//int R2D2
+//int _2R2D_
+//int _R2D2_
+//int 2R2D
 //
 
 //// ### QUESTION 13
@@ -2667,11 +2730,11 @@
 
 //// ### QUESTION 15
 //valid integer in C?
-//3,141592
-//3141592
-//3.141592
-//3_141_592
-//
+//const int a = 3,141592;
+//const int a = 3141592;
+//const int a = 3.141592;
+//const int a = 3_141_592;
+
 
 //// ### QUESTION 16
 //0x12 as integer?
@@ -2698,7 +2761,7 @@
 //
 //int main(void) {
 //    int arr[] = { 8, 4, 2, 1 };
-//
+//    // no pointer, no string, fun(1) returns 2, so, 2 + 2 = 4
 //    printf("%d\n", fun(arr[3]) + arr[2]);
 //    return 0;
 //}
@@ -2754,23 +2817,33 @@
 //// 4
 
 //// ### QUESTION 22
-//#include <stdio.h>
-//
+#include <stdio.h>
+
+// here p is returned THEN incremented
 //char *f(char *p) {
+//    printf("%s\n",p+1);
 //    return p++;
 //}
 //
+//// here p + 2 is returned
 //char *g(char *p) {
+//    printf("%s\n",p + 2);
 //    return p += 2;
 //}
 //
 //int main(void) {
 //    char *s = "ABCDEFGHIJ";
 //    char  p = *f(g(f(s + 6)));
+//    printf("%c\n", p);
+//    printf("%d\n", 'A');
 //
 //    printf("%d", p - 'A');
 //    return 0;
 //}
+// TAKEAWAY
+// if the return value of ANY type is post in- or decremented then the value itself is returned (in-/decrementation is locally in this example)
+// BUT if return is incemented by "return x += 2" then "the result of "x = x + 2" is returned
+// take care and know the rules for the ++ and +/, respectively -- and -= operators as returns values
 //// 8
 
 //// ### QUESTION 23
