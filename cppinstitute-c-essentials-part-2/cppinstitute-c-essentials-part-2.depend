@@ -1,4 +1,5 @@
 # depslib dependency file v1.0
-1612101202 source:/home/jens/development/this-and-that/cppinstitute-c-essentials-part-2/main.c
+1612152633 source:/home/jens/development/this-and-that/cppinstitute-c-essentials-part-2/main.c
+	<stdio.h>
 	<stdio.h>
 
