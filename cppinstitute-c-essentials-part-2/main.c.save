@@ -1054,7 +1054,7 @@
 //	for(j = 0; j < 0; j -= i)
 //        i /= 2;
 //    // i = 1
-//    // J = -1
+//    // j = -1
 //    // 1 - -1 = 2
 //	printf("%d", i + j);
 //    return 0;
@@ -2574,7 +2574,7 @@
 //        printf("i=%d, j=%d\n", i, j);
 //      	j--;
 //    }
-//    // i=-1 , j = 2
+//    // after test once more decremented, so i=-1 , j = 2
 //    printf("i=%d, j=%d\n", i, j);
 //
 //    printf("%d", i + j);
