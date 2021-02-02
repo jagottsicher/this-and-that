@@ -3374,3 +3374,15 @@
 //    return 0;
 //}
 //// 2
+
+//// Others
+#include <stdio.h>
+
+int main(void) {
+    float i = 0;
+        i /= -1E-1;
+
+	printf("%f", i);
+    return 0;
+}
+

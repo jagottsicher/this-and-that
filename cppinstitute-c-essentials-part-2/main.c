@@ -1046,19 +1046,19 @@
 //}
 ////4
 
-#include <stdio.h>
-
-int main(void) {
-    int i = 2, j;
-    // loop only executed once
-	for(j = 0; j < 0; j -= i)
-        i /= 2;
-    // i = 1
-    // j = -1
-    // 1 - -1 = 2
-	printf("%d", i + j);
-    return 0;
-}
+//#include <stdio.h>
+//
+//int main(void) {
+//    int i = 2, j;
+//    // loop only executed once
+//	for(j = 0; j < 0; j -= i)
+//        i /= 2;
+//    // i = 1
+//    // j = -1
+//    // 1 - -1 = 2
+//	printf("%d", i + j);
+//    return 0;
+//}
 //// 2
 
 //#include <stdio.h>
@@ -3374,3 +3374,15 @@ int main(void) {
 //    return 0;
 //}
 //// 2
+
+//// Others
+#include <stdio.h>
+
+int main(void) {
+    float i = 0;
+        i = -1E-1;
+
+	printf("%f", i);
+    return 0;
+}
+
