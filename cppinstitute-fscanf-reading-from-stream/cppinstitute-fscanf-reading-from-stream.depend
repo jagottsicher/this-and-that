@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1610930056 source:/home/jens/development/this-and-that/cppinstitute-fscanf-reading-from-stream/main.c
+	<stdio.h>
+	<errno.h>
+	<string.h>
+

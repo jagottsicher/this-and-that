@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    struct names {
+      char givenName[20];
+      char familyName[20];
+    };
+
+    
+
+
+    printf("Hello world!\n");
+    return 0;
+}
