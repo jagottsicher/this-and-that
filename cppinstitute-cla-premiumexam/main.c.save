@@ -1,9 +1,9 @@
 ///* ### MOCK EXAM */
 //// ### Declarations
 ////
-
 // int *(*(*p)[3])();
 // p is a pointer to a 3-element array of pointers to functions returning a pointer to int.
+//  p is a pointer to array 3 of pointer to function returning pointer to int
 
 // char (*(*ptr)[3])[20];
 // ptr is a pointer to an array [3] of pointers to an array [20] of char
@@ -15,22 +15,27 @@
 // fun is a function (float) returning pointer to float
 
 // float *(*arr[100])[5];
-// arr is a 100-element array of pointers to 5-element array of pointers to float
+//arr is a 100-element array of pointers to 5-element array of pointers to float
+//arr is a array 100 of pointer to array 5 of pointer to float
 
-// int (*(*ptr)[5])[10];
-// ptr is a pointer to 5-element array of pointers to 10-element array of int
+//int (*(*ptr)[5])[10];
+//ptr is a pointer to 5-element array of pointers to 10-element array of int
 
-// char *(*fun)(char,int);
-// fun is a pointer to function with two parameters (char and int) returning a pointer to char
+//char *(*fun)(char,int);
+//fun is a pointer to function with two parameters (char and int) returning a pointer to char
+//fun is a pointer to function (char, int) returning pointer to char
 
-// void (*f)(int);
-// f is a pointer to function (int) returning void;
+//    void (*f)(int);
+//    f is a pointer to function (int) returning void;
 
-// float *f(int);
-// f is a function (int) returning pointer to float;
+//    float *f(int);
+//    f is a function (int) returning pointer to float;
 
-// ptr is a pointer to pointer to pointer to double
-// double ***ptr;
+//    ptr is a pointer to pointer to pointer to double
+//    double ***ptr;
+
+
+
 
 
 // 1. Question 1 points
