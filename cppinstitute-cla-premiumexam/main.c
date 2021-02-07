@@ -2,6 +2,8 @@
 //// ### Declarations
 ////
 
+// https://cdecl.org/
+
 // int *(*(*p)[3])();
 // p is a pointer to a 3-element array of pointers to functions returning a pointer to int.
 
@@ -32,6 +34,43 @@
 // ptr is a pointer to pointer to pointer to double
 // double ***ptr;
 
+//#include <stdio.h>
+//    int main(void) {
+//        char  *t1 [10];
+//        char (*t2)[10];
+//        printf("%d",(sizeof(t1) == sizeof(t2)) + sizeof(t1[0]));
+//        return 0;
+//    }
+// 8
+
+
+//#include <stdio.h>
+//
+//int main(void) {
+//    int i, s = 0, t[] = {0, 1, 2, 4, 8, 16};
+//
+//    for(i = 2; t[i] < 8; i *= 2)
+//        s += t[i];
+//
+//	printf("%d\n", s);
+//    return 0;
+//}
+
+//#include <stdio.h>
+//
+//int main(void) {
+//    int i = 2, j;
+//	printf("%d, %d\n", i, j);
+//
+//	for(j = 0; j < 0; j -= i) {
+//        	printf("%d, %d\n", i, j);
+//        i /= 2;
+//        	printf("%d, %d\n", i, j);
+//}
+//
+//	printf("%d", i + j);
+//    return 0;
+//}
 
 // 1. Question 1 points
 //
@@ -815,6 +854,16 @@
 //    }
 //
 //    the program outputs 4
+
+//    #include <stdio.h>
+//    int main(void) {
+//        int t[4][4];
+//        printf("%d, %d, %d\n",sizeof(t), sizeof(t[0]), sizeof(t[0][0]));
+//        printf("%d\n",sizeof(t) / sizeof(t[0]) / sizeof(t[0][0]));
+//        return 0;
+//    }
+// 64 / 16 / 4 = 1
+
 //
 //14. Question 1 points
 //
