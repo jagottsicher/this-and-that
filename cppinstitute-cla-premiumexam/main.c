@@ -43,6 +43,16 @@
 //    }
 // 8
 
+//#include <stdio.h>
+//
+//int main(void) {
+//    char t[] = { 'a', 'z', 'B', 'Z', '0' };
+//
+//    printf("%d\n", t[t[1] - t[0] - t[3] + t[2] + 3] - t[4]);
+//    return 0;
+//}
+////0
+
 
 //#include <stdio.h>
 //
@@ -377,10 +387,12 @@
 //    int main(void) {
 //        char tt[20] = "0123456789";
 //        strcat(tt + 11, "123");
+//        for (int i = 0; i < 20; i++)
+//            printf("%c ",tt[i]);
+//        printf("\n%s\n", tt);
 //        printf("%d\n", strlen(tt) - tt[8] + '0');
 //        return 0;
 //    }
-
 //    the program outputs 2
 //
 //23. Question 1 points
@@ -491,13 +503,16 @@
 //    #include <stdio.h>
 //    int main(void) {
 //        int i = 5, j = i - 4 * i;
+//        printf("%d\n",j);
+//
 //        switch(j) {
 //        	default: j = 2;
-//        	case  1: j--; break;
+//        	printf("%d\n",j);
+//        	case  1: j--; printf("%d\n",j); break;
 //        	case  2: j++;
 //        	case  0: j--; break;
 //        }
-//        printf("%d", j++);
+//        printf("%d", j++); // incermented AFTER test
 //        return 0;
 //    }
 //
