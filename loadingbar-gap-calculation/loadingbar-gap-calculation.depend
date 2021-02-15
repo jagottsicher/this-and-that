@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1613354428 source:/home/jens/development/this-and-that/loadingbar-gap-calculation/main.c
+	<stdio.h>
+	<stdlib.h>
+

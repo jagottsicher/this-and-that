@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+char teststring[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int parts, length;
+
+int main()
+{
+    printf("String: %s\n",teststring);
+    printf("Length: %d\n",length);
+    for (int parts = 2; parts < 6; parts++)
+        (((strlen(teststring) - (parts - 1)) % parts) == 0) ? printf("Number of parts: %d\n", parts) : printf("Fail!");
+    }
+
+    return 0;
+}
