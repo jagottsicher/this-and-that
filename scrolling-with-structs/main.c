@@ -18,29 +18,33 @@ int main() {
     }
     aRow[999].right = &aRow[0];
 
-    struct Spot currentX = {'_', &aRow[0]};
 
     // output
-    // for (int i = 0; i < checkAndSetConsoleDimensions('x'); i++)
-//    {
-    printf("%c", currentX.terrain);
+    struct Spot *currentX;
+    currentX = aRow;
 
+//    for (int i = 0; i < checkAndSetConsoleDimensions('x'); i++) {
+//        printf("%c", currentX->terrain);
+//        currentX = currentX->right;
 //    }
 
-
-
-//printf("%c", aRow[0].terrain);
-//printf("%c", aRow[1].terrain);
-
-
-//    for (int i = 0 ; i < 2000 ; i++) {
-//    clearScreen();
-//        for (int j = 0; j < checkAndSetConsoleDimensions('x'); j++) {
-//            printf("%c", aRow[j+i].terrain);
-//            fflush(stdout);
-//        }
-//    msleep(10);
-//    }
+    int j = 0;
+    do {
+    clearScreen();
+    currentX = &aRow[j];
+        for (int i = 0; i < checkAndSetConsoleDimensions('x'); i++) {
+            putc(currentX->terrain, stdout);
+            currentX = currentX->right;
+        }
+    fflush(stdout);
+    printf("\n%d", j);
+    fflush(stdout);
+    if ((j > 995) || (j < 5))
+        msleep(1000);
+    j++;
+    if (j == 1000)
+        j = 0;
+    } while (j <= 999);
 
     return 0;
 }
