@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1613386679 source:/home/jens/development/this-and-that/scrolling-with-structs/main.c
+	<stdio.h>
+	<stdlib.h>
+	"../../needful-things/needful-things.h"
+
+1613382344 /home/jens/development/needful-things/needful-things.h
+
+1613382753 source:/home/jens/development/needful-things/needful-things.c
+	<time.h>
+	<sys/ioctl.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+
