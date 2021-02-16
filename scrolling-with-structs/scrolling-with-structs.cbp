@@ -35,7 +35,12 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../needful-things/needful-things.h" />
-		<Unit filename="main.c">
+		<Unit filename="01_struct.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="02_struct-nested.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />
