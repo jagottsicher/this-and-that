@@ -5,7 +5,10 @@
 
 struct Spot {
     char terrain;
+    struct Spot *left;
     struct Spot *right;
+    struct Spot *up;
+    struct Spot *down;
 };
 
 int main() {
@@ -15,20 +18,34 @@ int main() {
     for (int i = 0; i < 1000 ; i++) {
         aRow[i].terrain = randomNumber(65,90);
         aRow[i].right = &aRow[i+1];
+        aRow[i].left = &aRow[999-i];
     }
     aRow[999].right = &aRow[0];
-
+    aRow[0].left = &aRow[999];
 
     // output
     struct Spot *currentX;
     currentX = aRow;
+//    int j = 0;
 
-//    for (int i = 0; i < checkAndSetConsoleDimensions('x'); i++) {
-//        printf("%c", currentX->terrain);
-//        currentX = currentX->right;
-//    }
+//    do {
+//    clearScreen();
+//    currentX = &aRow[j];
+//        for (int i = 0; i < checkAndSetConsoleDimensions('x'); i++) {
+//            putc(currentX->terrain, stdout);
+//            currentX = currentX->right;
+//        }
+//    fflush(stdout);
+//    printf("\n Size of struct: %d, Number: %d",sizeof(struct Spot), j);
+//    fflush(stdout);
+////    if ((j > 995) || (j < 5))
+////        msleep(1000);
+//    j++;
+//    if (j == 1000)
+//        j = 0;
+//    } while (j <= 999);
 
-    int j = 0;
+    int j = 999;
     do {
     clearScreen();
     currentX = &aRow[j];
@@ -37,13 +54,13 @@ int main() {
             currentX = currentX->right;
         }
     fflush(stdout);
-    printf("\n%d", j);
+    printf("\n Size of struct: %d, Number: %d",sizeof(struct Spot), j);
     fflush(stdout);
-    if ((j > 995) || (j < 5))
-        msleep(1000);
-    j++;
-    if (j == 1000)
-        j = 0;
+    if ((j > 990) || (j < 10))
+        msleep(500);
+    j--;
+    if (j == 0)
+        j = 999;
     } while (j <= 999);
 
     return 0;
