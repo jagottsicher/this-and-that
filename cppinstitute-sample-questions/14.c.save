@@ -1,9 +1,0 @@
-// prog MARY HAD A LITTLE LAMB
-
-#include <stdio.h>
-#include <string.h>
-
-int main(int argc, char *argv[]) {
-    printf("%d", argc); + strlen(argv[1])); // argc = number of args INCLUDING prognam, argv[0] = prog, argv[1] = MARY = 4,
-return 0;
-}

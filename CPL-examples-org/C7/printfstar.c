@@ -1,1 +1,0 @@
-printf("%.*s", max, s);

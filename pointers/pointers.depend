@@ -1,5 +1,0 @@
-# depslib dependency file v1.0
-1603769151 source:/home/jens/development/this-and-that/pointers/main.c
-	<stdio.h>
-	<stdlib.h>
-

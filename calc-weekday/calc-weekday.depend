@@ -1,5 +1,0 @@
-# depslib dependency file v1.0
-1607087616 source:/home/jens/development/this-and-that/calc-weekday/main.c
-	<stdio.h>
-	<time.h>
-

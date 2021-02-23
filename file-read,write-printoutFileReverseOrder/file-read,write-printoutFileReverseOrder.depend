@@ -1,5 +1,0 @@
-# depslib dependency file v1.0
-1604384799 source:/home/jens/development/this-and-that/file-read,write-printoutFileReverseOrder/main.c
-	<stdio.h>
-	<stdlib.h>
-
