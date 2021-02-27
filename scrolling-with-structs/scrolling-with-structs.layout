@@ -9,7 +9,14 @@
 	</File>
 	<File name="02_struct-nested.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="215" topLine="21" />
+			<Cursor1 position="2514" topLine="53" />
 		</Cursor>
+		<Folding>
+			<Collapse line="42" />
+			<Collapse line="47" />
+			<Collapse line="50" />
+			<Collapse line="54" />
+			<Collapse line="57" />
+		</Folding>
 	</File>
 </CodeBlocks_layout_file>
