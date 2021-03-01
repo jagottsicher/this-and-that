@@ -10,8 +10,8 @@
 //#define WIDTH (10000)
 //#define HEIGHT (5625)
 
-#define WIDTH (200)
-#define HEIGHT (70)
+#define WIDTH (160)
+#define HEIGHT (48)
 #define DIMENSIONS (HEIGHT * WIDTH)
 
 struct Spots {
@@ -45,7 +45,7 @@ char stopOrNot = ' ';
 
      for (int i = 0 ; i < (DIMENSIONS); i++) {
 		aRow->terrain = randomNumber(65,90);
-		if ((aRow->terrain == 73) || (aRow->terrain == 67) || (aRow->terrain == 68) || (aRow->terrain == 74) || (aRow->terrain == 70) || (aRow->terrain == 71) || (aRow->terrain == 72))
+		if ((aRow->terrain == 73) || (aRow->terrain == 67) || (aRow->terrain == 68) || (aRow->terrain == 74) || (aRow->terrain == 70) || (aRow->terrain == 71) || (aRow->terrain == 72) || (aRow->terrain == 75) || (aRow->terrain == 76) || (aRow->terrain == 77) || (aRow->terrain == 78))
 			aRow->terrain = 32;
 		// but the first elements of the first 26 row you overwrite with ABC...
 		if ( (i % WIDTH == 0) && (i < (26 * WIDTH)) ) {
