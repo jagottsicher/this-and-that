@@ -43,57 +43,93 @@ int j = 0;
 char stopOrNot = ' ';
 
 //	fill a all members line randomly and connect the end with the beginning
+////	ALTERNATE I.
+//     for (int i = 0 ; i < (DIMENSIONS); i++) {
+//		//fill each element with random number
+//		aRow->terrain = randomNumber(65,90);
+//		if ((aRow->terrain == 66) || (aRow->terrain == 67) || (aRow->terrain == 68) || (aRow->terrain == 69) || (aRow->terrain == 70) || (aRow->terrain == 71) || (aRow->terrain == 72))
+//			aRow->terrain = 32;
+//		// but the first elements of the first 26 row you overwrite with ABC...
+//		if ( (i % WIDTH == 0) && (i < (26 * WIDTH)) ) {
+//			// fill first Elements with ABC...
+//			aRow->terrain = 65 + j++;
+//		}
+//		// assign each element to it's right member except the last elements in each row that assign to first members
+//		if (!(i % WIDTH == (WIDTH - 1))) {
+//				aRow->right = aRow + 1;
+//			}
+//			else {
+//				// printf("%d goes to %d\n", i, i - (WIDTH - 1));
+//				aRow->right = aRow - (WIDTH - 1);
+//			}
+//		// assign each element to it's left member except the first elements in each row that assign to last members
+//		if (!(i % WIDTH == (0))) {
+//				aRow->left = aRow - 1;
+//			}
+//			else {
+//				aRow->left = aRow + (WIDTH - 1);
+//				// printf("%d to %d\n", i, (i + WIDTH - 1));
+//			}
+//
+//		// all below pointers set except the last WIDTH ones
+//		if (i < DIMENSIONS - WIDTH)
+//			aRow->down = aRow + WIDTH;
+//		// last WIDTH ones point to the very first WIDTH ones
+//		if (i >= (DIMENSIONS - WIDTH))
+//			aRow->down = aRow - i ;
+//
+//		// first WIDTH ones point to the very last WIDTH ones
+//		if (i < WIDTH) //printf("#%d points to %d\n", i, (i + DIMENSIONS - WIDTH));
+//			aRow->up = aRow + i + DIMENSIONS - WIDTH;
+//		// all upper pointers set except the first WIDTH ones
+//		if (i >= WIDTH)
+//			aRow->up = aRow - WIDTH;
+//		// move to next element
+//		aRow = aRow + 1;
+//		}
+
+//	ALTERNATE II.
      for (int i = 0 ; i < (DIMENSIONS); i++) {
-		//fill each element with random number
 		aRow->terrain = randomNumber(65,90);
-		if ((aRow->terrain == 66) || (aRow->terrain == 67) || (aRow->terrain == 68) || (aRow->terrain == 69) || (aRow->terrain == 70) || (aRow->terrain == 71) || (aRow->terrain == 72))
+		if ((aRow->terrain == 73) || (aRow->terrain == 67) || (aRow->terrain == 68) || (aRow->terrain == 74) || (aRow->terrain == 70) || (aRow->terrain == 71) || (aRow->terrain == 72))
 			aRow->terrain = 32;
 		// but the first elements of the first 26 row you overwrite with ABC...
 		if ( (i % WIDTH == 0) && (i < (26 * WIDTH)) ) {
 			// fill first Elements with ABC...
 			aRow->terrain = 65 + j++;
 		}
-		// assign each element to it's right member except the last elements in each row that assign to first members
-		if (!(i % WIDTH == (WIDTH - 1))) {
-				aRow->right = aRow + 1;
-			}
-			else {
-				// printf("%d goes to %d\n", i, i - (WIDTH - 1));
-				aRow->right = aRow - (WIDTH - 1);
-			}
-		// assign each element to it's left member except the first elements in each row that assign to last members
-		if (!(i % WIDTH == (0))) {
-				aRow->left = aRow - 1;
-			}
-			else {
-				aRow->left = aRow + (WIDTH - 1);
-				// printf("%d to %d\n", i, (i + WIDTH - 1));
-			}
+		// RIGHT
+		// all except last column // OK
+		aRow->right = aRow + 1;
+		if ((i % WIDTH) == (WIDTH - 1))
+			aRow->right = aRow - (WIDTH + 1);
 
-		// all below pointers set except the last WIDTH ones
-		if (i < DIMENSIONS - WIDTH)
+		// DOWN
+		// all except last row
+		if (i < (DIMENSIONS - WIDTH)) { // CHECK THAT
 			aRow->down = aRow + WIDTH;
-		// last WIDTH ones point to the very first WIDTH ones
-		if (i >= (DIMENSIONS - WIDTH))
-			aRow->down = aRow - i ;
+			}
+			else {
+			aRow->down = aRow + (HEIGHT - 1) + i;
+			}
 
-		// first WIDTH ones point to the very last WIDTH ones
-		if (i < WIDTH) //printf("#%d points to %d\n", i, (i + DIMENSIONS - WIDTH));
-			aRow->up = aRow + i + DIMENSIONS - WIDTH;
-		// all upper pointers set except the first WIDTH ones
+		// LEFT
+		// all except first column
+		if (!(i % WIDTH == 0))
+			aRow->left = aRow - 1; //ELSE
+
+		// UP
+		// all except first row
 		if (i >= WIDTH)
 			aRow->up = aRow - WIDTH;
+
 		// move to next element
 		aRow = aRow + 1;
 		}
-ptr_currentSpot = ptr_toOrigin;
-for (int i = 0 ; i < 160 ; i++)
-	printf("Row %d, Element %d points up to Element ")
-msleep(5000);
-
 
 // turn off cursor //DOES NOT WORK. CURSES ?!
 curs_set(0);
+// msleep(5000);
 ptr_currentSpot = ptr_toOrigin;
 
 // main loop for movement
