@@ -10,8 +10,8 @@
 //#define WIDTH (10000)
 //#define HEIGHT (5625)
 
-#define WIDTH (200)
-#define HEIGHT (70)
+#define WIDTH (16000)
+#define HEIGHT (4800)
 #define DIMENSIONS (HEIGHT * WIDTH)
 
 struct Spots {
@@ -23,7 +23,7 @@ struct Spots {
 };
 
 // internal funtions
-void outputTheStage (int x, int y, struct Spots *ptr_handlerSpot);
+void outputTheStage (struct Spots *ptr_handlerSpot);
 
 int main() {
 //    struct Spots aRow[HEIGHT][WIDTH];
@@ -45,7 +45,7 @@ char stopOrNot = ' ';
 
      for (int i = 0 ; i < (DIMENSIONS); i++) {
 		aRow->terrain = randomNumber(65,90);
-		if ((aRow->terrain == 73) || (aRow->terrain == 67) || (aRow->terrain == 68) || (aRow->terrain == 74) || (aRow->terrain == 70) || (aRow->terrain == 71) || (aRow->terrain == 72))
+		if ((aRow->terrain == 73) || (aRow->terrain == 67) || (aRow->terrain == 68) || (aRow->terrain == 74) || (aRow->terrain == 70) || (aRow->terrain == 71) || (aRow->terrain == 72) || (aRow->terrain == 75) || (aRow->terrain == 76) || (aRow->terrain == 77) || (aRow->terrain == 78))
 			aRow->terrain = 32;
 		// but the first elements of the first 26 row you overwrite with ABC...
 		if ( (i % WIDTH == 0) && (i < (26 * WIDTH)) ) {
@@ -73,7 +73,7 @@ char stopOrNot = ' ';
 
 		// left column
 		if (!(((i % WIDTH) == 0) || (i == 0))) {
-			aRow->left = aRow + 1;
+			aRow->left = aRow - 1;
 		}
 		else {
 			//printf("left column: %d => %d\n", i, i + WIDTH - 1);
@@ -125,12 +125,8 @@ switch (stopOrNot) {
  printf("\n%d bytes/struct and %d bytes/world\n", sizeof(struct Spots), DIMENSIONS * sizeof(struct Spots));
 // msleep(5000);
 
-
-// cleanup and free the memory
-//	free (aRow); // is this okay?
-//	free (ptr_currentSpot);
-//	free (ptr_handlerSpot);
-//	free (ptr_toOrigin);
+aRow = ptr_toOrigin;
+free (aRow);
 curs_set(1);
     return 0;
 }
@@ -154,7 +150,7 @@ void outputTheStage (int x, int y, struct Spots *ptr_handlerSpot) {
 		// back to the beginning of the current row
 		for (int i = 0 ; i < checkAndSetConsoleDimensions('x') ; i++) {
 			ptr_handlerSpot = ptr_handlerSpot->left;
-		}		
+		}
 		// and set the pointer to the element below
 		ptr_handlerSpot = ptr_handlerSpot->down;
 	} // end of full screen height

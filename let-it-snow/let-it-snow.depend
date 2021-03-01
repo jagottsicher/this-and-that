@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1614573641 source:/home/jens/development/needful-things/needful-things.c
+	<time.h>
+	<sys/ioctl.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/ioctl.h>
+	<string.h>
+	<termios.h>
+

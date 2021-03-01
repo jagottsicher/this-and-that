@@ -10,8 +10,8 @@
 //#define WIDTH (10000)
 //#define HEIGHT (5625)
 
-#define WIDTH (160)
-#define HEIGHT (48)
+#define WIDTH (16000)
+#define HEIGHT (9000)
 #define DIMENSIONS (HEIGHT * WIDTH)
 
 struct Spots {
@@ -23,7 +23,7 @@ struct Spots {
 };
 
 // internal funtions
-void outputTheStage (int x, int y, struct Spots *ptr_handlerSpot);
+void outputTheStage (struct Spots *ptr_handlerSpot);
 
 int main() {
 //    struct Spots aRow[HEIGHT][WIDTH];
@@ -100,7 +100,7 @@ ptr_currentSpot = ptr_toOrigin;
 
 // main loop for movement
 while (!(stopOrNot == 'x')) {
-outputTheStage (0,0, ptr_currentSpot);
+outputTheStage (ptr_currentSpot);
 stopOrNot = mygetch();
 switch (stopOrNot) {
 	case 'a':
@@ -122,20 +122,16 @@ switch (stopOrNot) {
 }
 
 // print struct size and world size
- printf("\n%d bytes/struct and %d bytes/world\n", sizeof(struct Spots), DIMENSIONS * sizeof(struct Spots));
+ printf("\n%d bytes/struct and %u bytes/world\n", sizeof(struct Spots), DIMENSIONS * sizeof(struct Spots));
 // msleep(5000);
 
-
-// cleanup and free the memory
-//	free (aRow); // is this okay?
-//	free (ptr_currentSpot);
-//	free (ptr_handlerSpot);
-//	free (ptr_toOrigin);
+aRow = ptr_toOrigin;
+free (aRow);
 curs_set(1);
     return 0;
 }
 
-void outputTheStage (int x, int y, struct Spots *ptr_handlerSpot) {
+void outputTheStage (struct Spots *ptr_handlerSpot) {
 
 //	output of a complete screen
 	// clear screen
