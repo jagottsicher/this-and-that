@@ -103,7 +103,7 @@ void * mediumSnowflake() {
 	putc('*', stdout);
 	fflush(stdout);
 	pthread_mutex_unlock(&lockStdout);
-	msleep(100);
+	msleep(150);
 	pthread_mutex_lock(&lockStdout);
 	gotoxy(place_x,i);
 	putc(' ', stdout);
@@ -146,17 +146,17 @@ void * Snowing() {
 
 	while (1) {
 			i = randomNumber(1,1000);
-			if (i % MANY == 0) {
+			if (i) {
 					pthread_create(&Snow[j++], NULL, farSnowflake, NULL);
 					msleep(randomNumber(1,20));
 				}
 			if (i % NOT_SO_MANY == 0) {
 					pthread_create(&Snow[j++], NULL, mediumSnowflake, NULL);
-					msleep(randomNumber(1,50));
+					msleep(randomNumber(1,200));
 				}
 			if (i % A_FEW == 0) {
 					pthread_create(&Snow[j++], NULL, nearSnowflake, NULL);
-					msleep(randomNumber(1,100));
+					msleep(randomNumber(1,300));
 				}
 	if (!(j<300))
 		j = 1;
