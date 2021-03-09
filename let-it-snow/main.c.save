@@ -15,10 +15,10 @@ void * farSnowflake(void);
 void * Snowing(void);
 
 #define MANY 1
-#define NOT_SO_MANY 5
+#define NOT_SO_MANY 3
 #define A_FEW 7
 
-pthread_mutex_t lockHorizon;
+pthread_mutex_t *lockStdout;
 
 int main(void) {
 int horizon = ((checkAndSetConsoleDimensions('y')/3)*2);
@@ -37,28 +37,34 @@ pthread_exit(NULL);
 
 void drawHorizon(void) {
 	int horizon = ((checkAndSetConsoleDimensions('y')/3)*2);
-	pthread_mutex_lock(&lockHorizon);
 	for (int i = 1 ; i <= checkAndSetConsoleDimensions('x') ; i++) {
+	pthread_mutex_lock(&lockStdout);
 	gotoxy(i,horizon);
 	printf("_");
 	fflush(stdout);
+	pthread_mutex_unlock(&lockStdout);
 	}
 	for (int i = 1 ; i <= checkAndSetConsoleDimensions('x') ; i++) {
+	pthread_mutex_lock(&lockStdout);
 	gotoxy(i,horizon + 1);
 	printf("_");
 	fflush(stdout);
+	pthread_mutex_unlock(&lockStdout);
 	}
 	for (int i = 1 ; i <= checkAndSetConsoleDimensions('x') ; i++) {
+	pthread_mutex_lock(&lockStdout);
 	gotoxy(i,horizon + 5);
 	printf("_");
 	fflush(stdout);
+	pthread_mutex_unlock(&lockStdout);
 	}
 	for (int i = 1 ; i <= checkAndSetConsoleDimensions('x') ; i++) {
+	pthread_mutex_lock(&lockStdout);
 	gotoxy(i,horizon + 11);
 	printf("_");
 	fflush(stdout);
+	pthread_mutex_unlock(&lockStdout);
 	}
-	pthread_mutex_unlock(&lockHorizon);
 }
 
 // near snowflake
@@ -66,18 +72,23 @@ void * nearSnowflake() {
 		int horizon = ((checkAndSetConsoleDimensions('y')/3)*2);
 		int place_x = (randomNumber(1, checkAndSetConsoleDimensions('x')));
 		for (int i = 1 ; i <= (checkAndSetConsoleDimensions('y') - 2) ; i++) {
-			pthread_mutex_lock(&lockHorizon);
+		pthread_mutex_lock(&lockStdout);
 		gotoxy(place_x,i);
-		putc('O', stdout);
+		putc('0', stdout);
 		fflush(stdout);
+		pthread_mutex_unlock(&lockStdout);
 		msleep(100);
+		pthread_mutex_lock(&lockStdout);
 		gotoxy(place_x,i);
 		putc(' ', stdout);
 		fflush(stdout);
-		if (i == horizon) {
-		drawHorizon();
-		fflush(stdout);
-		}
+		pthread_mutex_unlock(&lockStdout);
+//		if (i == horizon) {
+//		pthread_mutex_lock(&lockStdout);
+//		drawHorizon();
+//		fflush(stdout);
+//		pthread_mutex_unlock(&lockStdout);
+//		}
 	}
 	return NULL;
 }
@@ -87,15 +98,19 @@ void * mediumSnowflake() {
 	int horizon = ((checkAndSetConsoleDimensions('y')/3)*2);
 	int place_x = (randomNumber(1, checkAndSetConsoleDimensions('x')));
 	for (int i = 1 ; i <= checkAndSetConsoleDimensions('y') - randomNumber(1, 10); i++) {
+	pthread_mutex_lock(&lockStdout);
 	gotoxy(place_x,i);
 	putc('*', stdout);
 	fflush(stdout);
+	pthread_mutex_unlock(&lockStdout);
 	msleep(200);
+	pthread_mutex_lock(&lockStdout);
 	gotoxy(place_x,i);
 	putc(' ', stdout);
 	fflush(stdout);
+	pthread_mutex_unlock(&lockStdout);
 	if (i == horizon)
-		drawHorizon();
+	drawHorizon();
 	fflush(stdout);
 	}
 return NULL;
@@ -103,17 +118,20 @@ return NULL;
 
 // far snowflake
 void * farSnowflake() {
-
 	int horizon = ((checkAndSetConsoleDimensions('y')/3)*2);
 	int place_x = (randomNumber(1, checkAndSetConsoleDimensions('x')));
 	for (int i = 1 ; i <= (horizon - 1); i++) {
+	pthread_mutex_lock(&lockStdout);
 	gotoxy(place_x,i);
 	putc('.', stdout);
 	fflush(stdout);
+	pthread_mutex_unlock(&lockStdout);
 	msleep(300);
+	pthread_mutex_lock(&lockStdout);
 	gotoxy(place_x,i);
-	putc(' ', stdout);;
+	putc(' ', stdout);
 	fflush(stdout);
+	pthread_mutex_unlock(&lockStdout);
 	}
 return NULL;
 }
@@ -121,22 +139,29 @@ return NULL;
 // Snowing
 void * Snowing() {
 	pthread_t Snow[300];
+	int j = 0, i;
+
+//		for (int i = 1 ; i <= (checkAndSetConsoleDimensions('x')) ; i++) {
 	while (1) {
-		for (int i = 1 ; i <= (checkAndSetConsoleDimensions('x')) ; i++) {
-		if (i % MANY == 0) {
-				pthread_create(&Snow[i], NULL, farSnowflake, NULL);
-				msleep(randomNumber(70,80));
-			}
-		if (i % NOT_SO_MANY == 0) {
-				pthread_create(&Snow[i], NULL, mediumSnowflake, NULL);
-				msleep(randomNumber(50,60));
-			}
-		if (i % A_FEW == 0) {
-				pthread_create(&Snow[i], NULL, nearSnowflake, NULL);
-				msleep(randomNumber(11,20));
-			}
-		}
+			i = randomNumber(1,1000);
+			if (i % MANY == 0) {
+					pthread_create(&Snow[j++], NULL, farSnowflake, NULL);
+					msleep(randomNumber(1,20));
+				}
+			if (i % NOT_SO_MANY == 0) {
+					pthread_create(&Snow[j++], NULL, mediumSnowflake, NULL);
+					msleep(randomNumber(1,50));
+				}
+			if (i % A_FEW == 0) {
+					pthread_create(&Snow[j++], NULL, nearSnowflake, NULL);
+					msleep(randomNumber(1,100));
+				}
+	if (!(j<300))
+		j = 1;
 	}
+//		}
+
+	drawHorizon();
 	return NULL;
 }
 
