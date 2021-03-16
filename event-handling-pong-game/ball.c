@@ -1,10 +1,12 @@
 
 #include "ball.h"
 
+#define SPEEDFACTOR (5)
+
 void UpdateBall(Ball* ball)
 {
-    ball->Position.x += GetFrameTime() * ball->Velocity.x;
-    ball->Position.y += GetFrameTime() * ball->Velocity.y;
+    ball->Position.x += SPEEDFACTOR * (GetFrameTime() * ball->Velocity.x);
+    ball->Position.y += SPEEDFACTOR * (GetFrameTime() * ball->Velocity.y);
 }
 
 void DrawBall(Ball* ball)

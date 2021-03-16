@@ -2,17 +2,14 @@
 
 #include "main.h"
 
-// #define INITIAL_BALL_VELOCITY {.x = 100, .y = 50}
-
-
 void Loop(GameData* data);
 void Update(GameData* data);
 void Draw(GameData* data);
 
 int main()
 {
-    int screenWidth = 800;
-    int screenHeight = 450;
+    int screenWidth = 1600;
+    int screenHeight = 900;
     InitWindow(screenWidth, screenHeight, "Pong");
     SetTargetFPS(60);
 
@@ -32,7 +29,7 @@ int main()
     Vector2 player1Position = {.x = (20), .y = (height / 2.f)};
     data.player1.Position = player1Position;
     data.player1.Size = padSize;
-    data.player1.Speed = 220;
+    data.player1.Speed = 500;
     data.player1.Score = 0;
     data.player1.Scheme = player1Input;
 
@@ -40,7 +37,7 @@ int main()
     Vector2 player2Position = {.x = (width - 20.f - padSize.x), .y = (height / 2.f)};
     data.player2.Position = player2Position;
     data.player2.Size = padSize;
-    data.player2.Speed = 220;
+    data.player2.Speed = 500;
     data.player2.Score = 0;
     data.player2.Scheme = player2Input;
 
@@ -54,11 +51,11 @@ void Loop(GameData* data)
     // The main game loop in raylib is really simple - just loop until window should close!
     while (!WindowShouldClose())
     {
-        // Update();
+        Update(data);
         UpdatePad(&data->player1);
 		UpdatePad(&data->player2);
 		UpdateBall(&data->ball);
-        //Draw();
+        Draw(data);
     }
 }
 
@@ -98,21 +95,21 @@ void Update(GameData* data) {
 void Draw(GameData* data)
 {
     BeginDrawing();
-    ClearBackground(BLACK);
+    ClearBackground(GREEN);
 
     // Create the structs giving values to x and y
 	Vector2 from = {.x = (GetScreenWidth() / 2.f), .y = 5};
 	Vector2 to = {.x = (GetScreenWidth() / 2.f), .y = (GetScreenHeight() - 5.f)};
 
 	// Pass the structs to the DrawLineEx function to draw the line on the screen
-	DrawLineEx(from, to, 2, LIGHTGRAY);
+	DrawLineEx(from, to, 5, WHITE);
 
-	const char* scoreLeft = TextFormat("%d", 10);
+	const char* scoreLeft = TextFormat("%d", data->player1.Score);
 	int scoreSizeLeft = MeasureText(scoreLeft, 20);
-	DrawText(scoreLeft, (GetScreenWidth() / 2) - 10 - scoreSizeLeft, 10, 20, LIGHTGRAY);
+	DrawText(scoreLeft, (GetScreenWidth() / 2) - 10 - scoreSizeLeft, 10, 20, WHITE);
 
-	const char* scoreRight = TextFormat("%d", 11);
-	DrawText(scoreRight, (GetScreenWidth() / 2) + 10, 10, 20, LIGHTGRAY);
+	const char* scoreRight = TextFormat("%d", data->player2.Score);
+	DrawText(scoreRight, (GetScreenWidth() / 2) + 10, 10, 20, WHITE);
 
 	DrawBall(&data->ball);
 	DrawPad(&data->player1);
