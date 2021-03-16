@@ -18,12 +18,13 @@ int main()
 
     GameData data;
 
+
+	Vector2 padSize = {.x = 10, .y = 100};
     Vector2 ballPosition = {.x = width / 2, .y = height / 2};
-    Vector2 ballVelocity = {.x = 100, .y = 50};
+    Vector2 ballVelocity = {.x = GetRandomValue(10, 100), .y = GetRandomValue(30, 50)};
     data.ball.Position = ballPosition;
     data.ball.Velocity = ballVelocity;
 
-    Vector2 padSize = {.x = 10, .y = 100};
 
     InputScheme player1Input = {.UpButton = KEY_W, .DownButton = KEY_S};
     Vector2 player1Position = {.x = (20), .y = (height / 2.f)};
@@ -63,7 +64,9 @@ void Update(GameData* data) {
 
     int height = GetScreenHeight();
     int width = GetScreenWidth();
-    Vector2 ballVelocity = {.x = 100, .y = 50};
+    Vector2 ballVelocity = {.x = GetRandomValue(70, 100), .y = GetRandomValue(-50, 50)};
+
+    // Vector2 ballVelocity = {.x = 100, .y = 50};
 
 	if (DetectBallTouchesPad(&data->ball, &data->player1) || DetectBallTouchesPad(&data->ball, &data->player2))
 	{

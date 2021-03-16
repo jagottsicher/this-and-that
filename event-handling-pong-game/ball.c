@@ -1,7 +1,7 @@
 
 #include "ball.h"
 
-#define SPEEDFACTOR (5)
+#define SPEEDFACTOR (GetRandomValue(4, 6))
 
 void UpdateBall(Ball* ball)
 {

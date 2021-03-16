@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1615888066 source:/home/jens/development/this-and-that/event-handling-pong-game/main.c
+1615893837 source:/home/jens/development/this-and-that/event-handling-pong-game/main.c
 	"main.h"
 
 1615870057 /home/jens/development/this-and-that/event-handling-pong-game/main.h
@@ -207,7 +207,7 @@
 1615869630 /home/jens/development/this-and-that/event-handling-pong-game/pad.h
 	<raylib.h>
 
-1615871010 source:/home/jens/development/this-and-that/event-handling-pong-game/ball.c
+1615894010 source:/home/jens/development/this-and-that/event-handling-pong-game/ball.c
 	"ball.h"
 
 1615871010 /home/jens/development/this-and-that/event-handling-pong-game/ball.h
