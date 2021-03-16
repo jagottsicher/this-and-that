@@ -1,0 +1,214 @@
+# depslib dependency file v1.0
+1615869432 source:/home/jens/development/this-and-that/event-handling-pong-game/main.c
+	"main.h"
+
+1615859425 /home/jens/development/this-and-that/event-handling-pong-game/main.h
+	<raylib.h>
+
+1615859251 /home/jens/development/raylib/src/raylib.h
+	<stdarg.h>
+	<stdbool.h>
+
+1615859251 source:/home/jens/development/raylib/examples/audio/audio_module_playing.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/audio/audio_multichannel_sound.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/audio/audio_music_stream.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/audio/audio_raw_stream.c
+	"raylib.h"
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
+1615859251 source:/home/jens/development/raylib/examples/audio/audio_sound_loading.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_2d_camera.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_2d_camera_platformer.c
+	"raylib.h"
+	"raymath.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_3d_camera_first_person.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_3d_camera_free.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_3d_camera_mode.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_3d_picking.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_basic_window.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_basic_window_web.c
+	"raylib.h"
+	<emscripten/emscripten.h>
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_custom_logging.c
+	"raylib.h"
+	<stdio.h>
+	<time.h>
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_drop_files.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_input_gamepad.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_input_gestures.c
+	"raylib.h"
+	<string.h>
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_input_keys.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_input_mouse.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_input_mouse_wheel.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_input_multitouch.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_loading_thread.c
+	"raylib.h"
+	"pthread.h"
+	<stdatomic.h>
+	<time.h>
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_quat_conversion.c
+	"raylib.h"
+	"raymath.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_random_values.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_scissor_test.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_storage_values.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_vr_simulator.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_window_flags.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_window_letterbox.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/core/core_world_screen.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/examples_template.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_animation.c
+	"raylib.h"
+	<stdlib.h>
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_billboard.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_box_collisions.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_cubicmap.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_first_person_maze.c
+	"raylib.h"
+	<stdlib.h>
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_geometric_shapes.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_gltf_animation.c
+	"raylib.h"
+	<stdlib.h>
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_gltf_model.c
+	"raylib.h"
+	<stdlib.h>
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_heightmap.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_loading.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_material_pbr.c
+	"raylib.h"
+	"raymath.h"
+	<stdio.h>
+	"rlights.h"
+
+1615859251 /home/jens/development/raylib/examples/models/rlights.h
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_mesh_generation.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_mesh_picking.c
+	"raylib.h"
+	"raymath.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_orthographic_projection.c
+	"raylib.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_rlgl_solar_system.c
+	"raylib.h"
+	"rlgl.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_skybox.c
+	"raylib.h"
+	"rlgl.h"
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_waving_cubes.c
+	"raylib.h"
+	<math.h>
+
+1615859251 source:/home/jens/development/raylib/examples/models/models_yaw_pitch_roll.c
+	"raylib.h"
+	"raymath.h"
+
+1615859251 source:/home/jens/development/raylib/examples/others/easings_testbed.c
+	<raylib.h>
+	"easings.h"
+
+1615859251 /home/jens/development/raylib/examples/others/easings.h
+	<math.h>
+
+1615859251 source:/home/jens/development/raylib/examples/others/embedded_files_loading.c
+	"raylib.h"
+	"resources/audio_data.h"
+	"resources/image_data.h"
+
+1615859251 /home/jens/development/raylib/examples/others/resources/audio_data.h
+
+1615859251 /home/jens/development/raylib/examples/others/resources/image_data.h
+
+1615869697 source:/home/jens/development/this-and-that/event-handling-pong-game/pad.c
+	"pad.h"
+
+1615869630 /home/jens/development/this-and-that/event-handling-pong-game/pad.h
+	<raylib.h>
+
+1615871010 source:/home/jens/development/this-and-that/event-handling-pong-game/ball.c
+	"ball.h"
+
+1615871010 /home/jens/development/this-and-that/event-handling-pong-game/ball.h
+	<raylib.h>
+	"pad.h"
+

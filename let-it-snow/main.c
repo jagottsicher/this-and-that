@@ -142,27 +142,35 @@ return NULL;
 // Snowing
 void * Snowing() {
 	pthread_t Snow[300];
-	int j = 0, i;
+	int j = 0, i, ret;
 
 	while (1) {
 			i = randomNumber(1,1000);
 			if (i) {
-					pthread_create(&Snow[j++], NULL, farSnowflake, NULL);
+					pthread_create(&Snow[j], NULL, farSnowflake, NULL);
+					ret = pthread_detach(Snow[j]);
+					++j;
 					msleep(randomNumber(1,20));
 				}
 			if (i % NOT_SO_MANY == 0) {
-					pthread_create(&Snow[j++], NULL, mediumSnowflake, NULL);
-					msleep(randomNumber(1,200));
+					pthread_create(&Snow[j], NULL, mediumSnowflake, NULL);
+					ret = pthread_detach(Snow[j]);
+					++j;
+					msleep(randomNumber(1,100));
 				}
 			if (i % A_FEW == 0) {
-					pthread_create(&Snow[j++], NULL, nearSnowflake, NULL);
-					msleep(randomNumber(1,300));
+					pthread_create(&Snow[j], NULL, nearSnowflake, NULL);
+					ret = pthread_detach(Snow[j]);
+					++j;
+					msleep(randomNumber(1,150));
 				}
-	if (!(j<300))
+	if (!(j<300)) {
 		j = 1;
-	drawHorizon();
+
 	}
 
+	drawHorizon();
+	}
 	return NULL;
 }
 

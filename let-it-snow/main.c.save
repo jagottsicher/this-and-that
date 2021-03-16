@@ -15,7 +15,7 @@ void * farSnowflake(void);
 void * Snowing(void);
 
 #define MANY 1
-#define NOT_SO_MANY 3
+#define NOT_SO_MANY 5
 #define A_FEW 7
 
 pthread_mutex_t *lockStdout;
@@ -77,7 +77,7 @@ void * nearSnowflake() {
 		putc('0', stdout);
 		fflush(stdout);
 		pthread_mutex_unlock(&lockStdout);
-		msleep(100);
+		msleep(50);
 		pthread_mutex_lock(&lockStdout);
 		gotoxy(place_x,i);
 		putc(' ', stdout);
@@ -103,15 +103,18 @@ void * mediumSnowflake() {
 	putc('*', stdout);
 	fflush(stdout);
 	pthread_mutex_unlock(&lockStdout);
-	msleep(200);
+	msleep(150);
 	pthread_mutex_lock(&lockStdout);
 	gotoxy(place_x,i);
 	putc(' ', stdout);
 	fflush(stdout);
 	pthread_mutex_unlock(&lockStdout);
-	if (i == horizon)
-	drawHorizon();
-	fflush(stdout);
+//	if (i == horizon) {
+//	pthread_mutex_lock(&lockStdout);
+//	drawHorizon();
+//	fflush(stdout);
+//	pthread_mutex_unlock(&lockStdout);
+//	}
 	}
 return NULL;
 }
@@ -126,7 +129,7 @@ void * farSnowflake() {
 	putc('.', stdout);
 	fflush(stdout);
 	pthread_mutex_unlock(&lockStdout);
-	msleep(300);
+	msleep(200);
 	pthread_mutex_lock(&lockStdout);
 	gotoxy(place_x,i);
 	putc(' ', stdout);
@@ -139,29 +142,35 @@ return NULL;
 // Snowing
 void * Snowing() {
 	pthread_t Snow[300];
-	int j = 0, i;
+	int j = 0, i, ret;
 
-//		for (int i = 1 ; i <= (checkAndSetConsoleDimensions('x')) ; i++) {
 	while (1) {
 			i = randomNumber(1,1000);
-			if (i % MANY == 0) {
-					pthread_create(&Snow[j++], NULL, farSnowflake, NULL);
+			if (i) {
+					pthread_create(&Snow[j], NULL, farSnowflake, NULL);
+					//ret = pthread_detach(Snow[j]);
+					++j;
 					msleep(randomNumber(1,20));
 				}
 			if (i % NOT_SO_MANY == 0) {
-					pthread_create(&Snow[j++], NULL, mediumSnowflake, NULL);
-					msleep(randomNumber(1,50));
+					pthread_create(&Snow[j], NULL, mediumSnowflake, NULL);
+					//ret = pthread_detach(Snow[j]);
+					++j;
+					msleep(randomNumber(1,200));
 				}
 			if (i % A_FEW == 0) {
-					pthread_create(&Snow[j++], NULL, nearSnowflake, NULL);
-					msleep(randomNumber(1,100));
+					pthread_create(&Snow[j], NULL, nearSnowflake, NULL);
+					//ret = pthread_detach(Snow[j]);
+					++j;
+					msleep(randomNumber(1,300));
 				}
-	if (!(j<300))
+	if (!(j<300)) {
 		j = 1;
+
 	}
-//		}
 
 	drawHorizon();
+	}
 	return NULL;
 }
 
