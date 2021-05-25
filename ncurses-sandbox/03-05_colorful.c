@@ -6,6 +6,7 @@ int main()
     start_color();
     init_pair(1,COLOR_BLACK,COLOR_RED);
     init_pair(2,COLOR_YELLOW,COLOR_BLACK);
+
     attrset(COLOR_PAIR(1));     /* black on red */
     addstr("I am Mr. Black!\n");
     attrset(COLOR_PAIR(2));     /* yellow on black */
