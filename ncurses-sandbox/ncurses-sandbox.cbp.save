@@ -53,6 +53,9 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="04-01_charattrib.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="08-07_greetings.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -100,6 +103,8 @@
 		</Unit>
 		<Unit filename="popOS-proof-of-principle-OS.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Extensions />
 	</Project>
