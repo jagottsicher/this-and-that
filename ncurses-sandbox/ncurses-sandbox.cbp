@@ -16,6 +16,9 @@
 				</Compiler>
 				<Linker>
 					<Add option="-lncurses" />
+					<Add option="-lform" />
+					<Add option="-lpanel" />
+					<Add option="-lmenu" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -52,6 +55,19 @@
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />
+		</Unit>
+		<Unit filename="04-05_acslist.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="04-11_unicode.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="04-12_ustring.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="08-07_greetings.c">
 			<Option compilerVar="CC" />
@@ -98,8 +114,20 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="black-magic-with-forms.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="popOS-proof-of-principle-OS.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="windows-browsing.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Extensions />
 	</Project>
