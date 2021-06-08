@@ -121,6 +121,11 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="digital-clock.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="popOS-proof-of-principle-OS.c">
 			<Option compilerVar="CC" />
 		</Unit>
