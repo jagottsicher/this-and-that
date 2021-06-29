@@ -41,6 +41,9 @@
 		<Linker>
 			<Add option="-lncurses" />
 		</Linker>
+		<Unit filename="../../shebashmmorpg/colordemo.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="01-first-steps.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -128,6 +131,8 @@
 		</Unit>
 		<Unit filename="popOS-proof-of-principle-OS.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Unit filename="windows-browsing.c">
 			<Option compilerVar="CC" />
