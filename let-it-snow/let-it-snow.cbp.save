@@ -52,6 +52,11 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../needful-things/needful-things.h" />
+		<Unit filename="../horsing-around/playing-the-strings.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
