@@ -4,7 +4,7 @@ int main()
 {
     initscr();
 
-    if( NCURSES_MOUSE_VERSION>0)
+    if( NCURSES_MOUSE_VERSION > 0)
     {
         addstr("Mouse functions available.\n");
         mousemask(ALL_MOUSE_EVENTS,NULL);

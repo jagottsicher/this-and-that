@@ -43,6 +43,8 @@
 		</Linker>
 		<Unit filename="../../shebashmmorpg/colordemo.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Unit filename="01-first-steps.c">
 			<Option compilerVar="CC" />
@@ -96,8 +98,6 @@
 		</Unit>
 		<Unit filename="14-02_mspy.c">
 			<Option compilerVar="CC" />
-			<Option compile="0" />
-			<Option link="0" />
 		</Unit>
 		<Unit filename="14-04_bclick.c">
 			<Option compilerVar="CC" />

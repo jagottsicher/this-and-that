@@ -44,3 +44,9 @@
 	<stdio.h>
 	<stdlib.h>
 
+1627093503 source:/home/jens/development/this-and-that/ncurses-sandbox/14-01_mousetest.c
+	<ncurses.h>
+
+1607600043 source:/home/jens/development/this-and-that/ncurses-sandbox/14-02_mspy.c
+	<ncurses.h>
+

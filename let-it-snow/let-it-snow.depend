@@ -31,3 +31,7 @@
 	<string.h>
 	<termios.h>
 
+1625751542 source:/home/jens/development/this-and-that/horsing-around/playing-the-strings.c
+	<stdio.h>
+	<strings.h>
+
