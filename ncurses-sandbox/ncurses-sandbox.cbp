@@ -41,6 +41,9 @@
 		<Linker>
 			<Add option="-lncurses" />
 		</Linker>
+		<Unit filename="../../shebashmmorpg/calculation-possible-world-size.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="01-first-steps.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -108,6 +111,8 @@
 		</Unit>
 		<Unit filename="15-02_steps.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Unit filename="15-04_dumpwin.c">
 			<Option compilerVar="CC" />
