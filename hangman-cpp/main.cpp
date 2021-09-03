@@ -1,3 +1,18 @@
+// TODO (jens#1#09/03/21): add List of unused Letters ...
+//
+
+// TODO (jens#1#09/03/21): Show Secret uppercase only ...
+//
+
+// TODO (jens#1#09/03/21): Help-Test and explanation
+
+// TODO (jens#1#09/03/21): option to solve after pressing enter only ...
+//
+
+// TODO (jens#1#09/03/21): add ncurses
+
+// TODO (jens#1#09/03/21): chance input types to getch
+
 #include <iostream>
 #include <cstring>
 #include <cctype>
@@ -336,7 +351,6 @@ void DrawBoard(int numberOfGuessesLeft, const char * noptr_hiddenPhrase){
 	}
 
 	cout << "Secret Phrase: " << noptr_hiddenPhrase << endl << endl;
-//	cout << lettersNotUsed  << endl;
 }
 
 char GetCharacter(const char* prompt, const char* error)
