@@ -5,6 +5,7 @@
 #define MAXSCREENWIDTH 256
 
 WINDOW * lowerBar;
+//lowerBar = nullptr;
 
 int drawBars(const char * barMeans, int barNumber, double maxValue, double currentValue);
 
@@ -45,19 +46,13 @@ char currentValueString[10], maxValueString[20], percentageString[4];
 int currentValueStringLength = 0, maxValueStringLength = 0, percentageStringLength = 0, gapWidth = 0;
 currentValue += 1.00000;
 
-/*
-This function draws the actual percentage bar(s)
-Wenn noch kein Window existiert, wird eines gemacht.
+static bool firstCall = true;
 
-wenn es existiert, wird es mit den aktuellen Werten geupdated und refreshed
 
-*/
-//if (1) { // window exists
-//// draw it
-//} else {
-//// make the window
-    lowerBar = newwin(1,COLS,LINES-1,0);
-    wbkgd(lowerBar,COLOR_PAIR(2));
+    if (firstCall == true) {
+        lowerBar = newwin(1,COLS,LINES-1,0);
+        wbkgd(lowerBar,COLOR_PAIR(2));
+    }
 
     // calc percentage
     percentage = ((100 * currentValue) / maxValue);
@@ -75,14 +70,6 @@ wenn es existiert, wird es mit den aktuellen Werten geupdated und refreshed
         sprintf(maxValueString, "%d", (int)maxValue);
     }
     maxValueStringLength = strlen(maxValueString);
-
-
-    // notwendig bei alles voll
-//    if (currentValue == maxValue) {
-//        sprintf(maxValueString, "%d", (int)currentValue);
-//        maxValueStringLength = strlen(maxValueString);
-//    }
-
 
     gapWidth = (COLS - strlen(barMeans) - currentValueStringLength - maxValueStringLength - percentageStringLength - 2); // 2 here means one for / one for SPACER
 
@@ -102,7 +89,9 @@ wenn es existiert, wird es mit den aktuellen Werten geupdated und refreshed
     changeColorPosition = ((COLS * (int)percentage) / 100);
     wmove(lowerBar,0,0);
     for (int i = 0; i < COLS; i++) {
-        if (i == changeColorPosition) {
+        if (i < changeColorPosition) {
+            wattron(lowerBar,COLOR_PAIR(2));
+        } else {
             wattron(lowerBar,COLOR_PAIR(1));
         }
         waddch(lowerBar, completeString[i]);
@@ -111,7 +100,7 @@ wenn es existiert, wird es mit den aktuellen Werten geupdated und refreshed
     // wprintw(lowerBar,"Test: %s: %d%, Abolute: %d ",completeString, (int)percentage, changeColorPosition);
     wrefresh(lowerBar);
 //}
-
+firstCall = FALSE;
 return 0; // if okay, else error
 }
 
