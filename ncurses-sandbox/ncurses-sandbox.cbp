@@ -43,6 +43,8 @@
 		</Linker>
 		<Unit filename="../../shebashmmorpg/calculation-possible-world-size.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Unit filename="01-first-steps.c">
 			<Option compilerVar="CC" />
@@ -128,6 +130,9 @@
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />
+		</Unit>
+		<Unit filename="charsets-and-loading-bar-with percentage.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="digital-clock.c">
 			<Option compilerVar="CC" />

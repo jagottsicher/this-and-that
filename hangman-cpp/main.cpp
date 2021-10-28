@@ -1,18 +1,3 @@
-// TODO (jens#1#09/03/21): add List of unused Letters ...
-//
-
-// TODO (jens#1#09/03/21): Show Secret uppercase only ...
-//
-
-// TODO (jens#1#09/03/21): Help-Test and explanation
-
-// TODO (jens#1#09/03/21): option to solve after pressing enter only ...
-//
-
-// TODO (jens#1#09/03/21): add ncurses
-
-// TODO (jens#1#09/03/21): chance input types to getch
-
 #include <iostream>
 #include <cstring>
 #include <cctype>
@@ -24,6 +9,11 @@ using namespace std;
 
 const int IGNORE_CHARS = 256;
 const char * INPUT_ERROR_STRING = "Input error. Please try again.";
+const char * USABLE_LETTERS = "AEIOU BCDFGHJKLMNPQRSTVW";
+
+char * optr_lettersNotUsed = new char[28];
+
+
 
 
 void PlayGame();
@@ -60,15 +50,15 @@ void PlayGame() {
 
 	char secretPhrase[MAX_LENGTH_OF_SECRET_PHRASE];
 	char * optr_hiddenPhrase = nullptr;
-// char * optr_lettersNotUsed = nullptr;
 
 	int numberOfGuessesLeft = MAX_NUMBER_OF_GUESSES;
-
 	int secretPhraseLength = GetSecretPhrase(secretPhrase, MAX_LENGTH_OF_SECRET_PHRASE);
 
 	optr_hiddenPhrase = MakeHiddenPhrase(secretPhrase, secretPhraseLength);
-//	char * optr_lettersNotUsed = new char[27];
-//	optr_lettersNotUsed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	for (int i = 0; i < 28; i++) {
+		optr_lettersNotUsed[i] = USABLE_LETTERS[i];
+	}
 
 	DrawBoard(numberOfGuessesLeft, optr_hiddenPhrase);
 
@@ -88,7 +78,7 @@ void PlayGame() {
 	DisplayResult(secretPhrase, numberOfGuessesLeft);
 
 	delete [] optr_hiddenPhrase;
-//	delete [] optr_lettersNotUsed;
+	delete [] optr_lettersNotUsed;
 
 
 }
@@ -107,12 +97,12 @@ void UpdateBoard(char guess, char * noptr_hiddenPhrase, const char secretPhrase[
 			found = true;
 		}
 	}
-//	for (int i = 0; i < 26; i++) {
-//		if (toupper(guess) == optr_lettersNotUsed[i]) {
-//			optr_lettersNotUsed[i] = ' ';
-//		}
-//	}
 
+	for (int i = 0; i < 28; i++) {
+		if (toupper(guess) == optr_lettersNotUsed[i]) {
+			optr_lettersNotUsed[i] = ' ';
+		}
+	}
 
 	if (!found) {
 		numberOfGuessesLeft--;
@@ -350,7 +340,7 @@ void DrawBoard(int numberOfGuessesLeft, const char * noptr_hiddenPhrase){
 			break;
 	}
 
-	cout << "Secret Phrase: " << noptr_hiddenPhrase << endl << endl;
+	cout << "Secret Phrase: " << noptr_hiddenPhrase << endl << "Wrong guesses left: " << numberOfGuessesLeft << endl << "Choose from: "<< optr_lettersNotUsed << endl;
 }
 
 char GetCharacter(const char* prompt, const char* error)
@@ -387,7 +377,6 @@ char GetCharacter(const char* prompt, const char* error)
         }
 
     } while (inputFailure);
-
     return input;
 }
 
