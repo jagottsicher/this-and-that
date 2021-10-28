@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include <string.h>
 
-#define MAXVALUE (123456)
+#define MAXVALUE (12345)
 #define MAXSCREENWIDTH 256
 
 WINDOW * lowerBar;
@@ -17,8 +17,8 @@ int main(int argc, char *argv[])
 
     // start color
     start_color();
-    init_pair(1,COLOR_WHITE,COLOR_BLACK); // Full bar
-    init_pair(2,COLOR_BLACK,COLOR_WHITE); // Empty bar bar
+    init_pair(1,COLOR_WHITE,COLOR_BLUE); // Full bar
+    init_pair(2,COLOR_BLUE,COLOR_WHITE); // Empty bar bar
     // set "real" background colors for sdtscr provided by ncurses instead of partly interpreted by tty
     bkgd(COLOR_PAIR(1));
     refresh();
@@ -116,6 +116,8 @@ static bool firstCall = true;
         delwin(lowerBar);
         touchwin(stdscr);
         firstCall = true;
+        // just show effect
+        sleep(1);
     }
 
 return 0; // if okay, else error
