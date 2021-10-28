@@ -1,3 +1,8 @@
+// TODO (jens#1#10/28/21): Verschachtelung von Teilen ...
+//ODER
+//Mehrere Parallele Threads
+
+
 #include <ncurses.h>
 #include <string.h>
 
