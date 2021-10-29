@@ -133,11 +133,21 @@
 		</Unit>
 		<Unit filename="charsets-and-loading-bar-with percentage.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Unit filename="digital-clock.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />
+		</Unit>
+		<Unit filename="progress-bar-call-by-reference.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="progress-bar-call-by-value.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="windows-browsing.c">
 			<Option compilerVar="CC" />
