@@ -1,13 +1,13 @@
 #include <ncurses.h>
 #include <string.h>
 
-#define MAXVALUE (12345)
+#define MAXVALUE (123456)
 #define MAXSCREENWIDTH 256 // in chars
 
 WINDOW * lowerBar;
 //lowerBar = nullptr;
 
-int drawBars(const char * barMeans, const int barNumber, const double * maxValue, double * currentValue);
+int drawBars(const char * barMeans, int barNumber, const double * ptr_maxValue, const double * ptr_currentValue) ;
 
 int main(int argc, char *argv[])
 {
@@ -23,27 +23,37 @@ int main(int argc, char *argv[])
     bkgd(COLOR_PAIR(1));
     refresh();
     //
+
     noecho();
     keypad(stdscr, TRUE);
     cbreak();
     curs_set(0);
 
-    int i = 0;
-    int *ptr_i = &i;
+    double highestValue = MAXVALUE;
+    double * ptr_highestValue = &highestValue;
+    double * ptr_currentValue = NULL;
 
-    double theMaximumValue = MAXVALUE;
-    double * ptr_theMaximumValue = &theMaximumValue;
-
-
-    for (i = 0; i < MAXVALUE; i++) {
-        drawBars("Yet a percentage bar for any kind of procedure which needs a progress bar", 0, ptr_theMaximumValue, ptr_i);
+    for (int i = 0; i <= MAXVALUE; i++) {
+        double i_double = (double)i;
+        ptr_currentValue = &i_double;
+        drawBars("Yet a percentage bar for any kind of procedure which needs a progress bar", 0, ptr_highestValue, ptr_currentValue);
     }
-//    for (int i = 0; i < (5 * MAXVALUE); i++) {
-//        drawBars("This is a progress bar for a different procedure ", 0, 5 * MAXVALUE, i);
-//    }
-//    for (int i = 0; i < MAXVALUE; i++) {
-//        drawBars("and one more of these procedures which need a progress bar", 0, MAXVALUE, i);
-//    }
+
+    highestValue = (3 * MAXVALUE);
+
+    for (int i = 0; i <= (3 * MAXVALUE); i++) {
+        double i_double = (double)i;
+        ptr_currentValue = &i_double;
+        drawBars("This is a progress bar for a different procedure ", 0, ptr_highestValue, ptr_currentValue);
+    }
+
+    highestValue = MAXVALUE;
+
+    for (int i = 0; i <= MAXVALUE; i++) {
+        double i_double = (double)i;
+        ptr_currentValue = &i_double;
+        drawBars("and one more of these procedures which need a progress bar",0, ptr_highestValue, ptr_currentValue);
+    }
     printw("... and done.");
     refresh();
 
@@ -53,14 +63,13 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-int drawBars(const char * barMeans, const int barNumber, const double * maxValue, double * currentValue) {
+int drawBars(const char * barMeans, int barNumber, const double * ptr_maxValue, const double * ptr_currentValue) {
 
 double percentage = 0.00;
 int changeColorPosition = 0;
 char completeString[MAXSCREENWIDTH] = "", gap[MAXSCREENWIDTH] = "";
 char currentValueString[10], maxValueString[20], percentageString[4];
 int currentValueStringLength = 0, maxValueStringLength = 0, percentageStringLength = 0, gapWidth = 0;
-(*currentValue) += 1.00000;
 
 static bool firstCall = true;
 
@@ -70,7 +79,7 @@ static bool firstCall = true;
     }
 
     // calc percentage
-    percentage = ((100 * (*currentValue)) / (*maxValue));
+    percentage = ((100 * *ptr_currentValue) / * ptr_maxValue);
     // cast the double percentage to an int, and eventually to a string
     sprintf(percentageString, "%d", (int)percentage);
     // add "%" to the percentage
@@ -79,18 +88,18 @@ static bool firstCall = true;
     percentageStringLength = strlen(percentageString);
 
     // cast doubles to int to string and get the lengths
-    sprintf(currentValueString, "%d", (int)(*currentValue));
+    sprintf(currentValueString, "%d", (int)*ptr_currentValue);
     currentValueStringLength = strlen(currentValueString);
     // this adresses a problem with the last value disappearing, it is a logical error,
     // so this is just a workaround
-    if ((*currentValue) == (*maxValue)) {
-        sprintf(maxValueString, "%d", (int)(*currentValue));
+    if (*ptr_currentValue == *ptr_maxValue) {
+        sprintf(maxValueString, "%d", (int)*ptr_currentValue);
     } else {
-        sprintf(maxValueString, "%d", (int)(*maxValue));
+        sprintf(maxValueString, "%d", (int)*ptr_maxValue);
     }
     maxValueStringLength = strlen(maxValueString);
 
-    // I want a gap betweet the purpose of the progress bar on the left and the percentage and the values on the right.
+    // I want a gap between the purpose of the progress bar on the left and the percentage and the values on the right.
     // here I calculate the with of it
     gapWidth = (COLS - strlen(barMeans) - currentValueStringLength - maxValueStringLength - percentageStringLength - 2); // 2 here means one for / one for SPACER
 
@@ -139,7 +148,7 @@ static bool firstCall = true;
     // delete the window
     // touch stdscr to make sure in main the refresh will make the window disappear
     // if window is closed, then it needs to be like you open the window for the first time, so first call i set to true again
-    if ((*currentValue) == (*maxValue)) {
+    if (*ptr_currentValue == *ptr_maxValue) {
         delwin(lowerBar);
         touchwin(stdscr);
         firstCall = true;

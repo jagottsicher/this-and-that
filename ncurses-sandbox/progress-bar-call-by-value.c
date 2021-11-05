@@ -1,13 +1,13 @@
 #include <ncurses.h>
 #include <string.h>
 
-#define MAXVALUE (12345)
+#define MAXVALUE (123456)
 #define MAXSCREENWIDTH 256 // in chars
 
 WINDOW * lowerBar;
 //lowerBar = nullptr;
 
-int drawBars(const char * barMeans, int barNumber, double maxValue, double currentValue);
+int drawBars(const char * barMeans, int barNumber, const double maxValue, const double currentValue);
 
 int main(int argc, char *argv[])
 {
@@ -28,13 +28,13 @@ int main(int argc, char *argv[])
     cbreak();
     curs_set(0);
 
-    for (int i = 0; i < MAXVALUE; i++) {
+    for (int i = 0; i <= MAXVALUE; i++) {
         drawBars("Yet a percentage bar for any kind of procedure which needs a progress bar", 0, MAXVALUE, i);
     }
-    for (int i = 0; i < (5 * MAXVALUE); i++) {
-        drawBars("This is a progress bar for a different procedure ", 0, 5 * MAXVALUE, i);
+    for (int i = 0; i <= (3 * MAXVALUE); i++) {
+        drawBars("This is a progress bar for a different procedure ", 0, 3 * MAXVALUE, i);
     }
-    for (int i = 0; i < MAXVALUE; i++) {
+    for (int i = 0; i <= MAXVALUE; i++) {
         drawBars("and one more of these procedures which need a progress bar", 0, MAXVALUE, i);
     }
     printw("... and done.");
@@ -46,14 +46,14 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-int drawBars(const char * barMeans, int barNumber, const double maxValue, double currentValue) {
+int drawBars(const char * barMeans, int barNumber, const double maxValue, const double currentValue) {
 
 double percentage = 0.00;
 int changeColorPosition = 0;
 char completeString[MAXSCREENWIDTH] = "", gap[MAXSCREENWIDTH] = "";
 char currentValueString[10], maxValueString[20], percentageString[4];
 int currentValueStringLength = 0, maxValueStringLength = 0, percentageStringLength = 0, gapWidth = 0;
-currentValue += 1.00000;
+// currentValue += 1.00000;
 
 static bool firstCall = true;
 
@@ -65,7 +65,8 @@ static bool firstCall = true;
     // calc percentage
     percentage = ((100 * currentValue) / maxValue);
     // cast the double percentage to an int, and eventually to a string
-    sprintf(percentageString, "%d", (int)percentage);
+    sprintf(percentageString, "%d", (int)percentage);//*ptr_currentValue += 1.00000;
+
     // add "%" to the percentage
     strcat(percentageString,"\%");
     // get the length of the percentage string
