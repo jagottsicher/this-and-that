@@ -4,6 +4,10 @@
 #define MAXVALUE (123456)
 #define MAXSCREENWIDTH 256 // in chars
 
+#define LINES (getmaxy(stdscr))
+#define COLS (getmaxx(stdscr))
+
+
 WINDOW * lowerBar;
 //lowerBar = nullptr;
 

@@ -4,6 +4,9 @@
 #define MAXVALUE (123456)
 #define MAXSCREENWIDTH 256 // in chars
 
+#define LINES (getmaxy(stdscr))
+#define COLS (getmaxx(stdscr))
+
 WINDOW * lowerBar;
 //lowerBar = nullptr;
 
@@ -30,13 +33,16 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i <= MAXVALUE; i++) {
         drawBars("Yet a percentage bar for any kind of procedure which needs a progress bar", 0, MAXVALUE, i);
+        wrefresh(lowerBar);
+        touchwin(stdscr);
+        refresh();
     }
-    for (int i = 0; i <= (3 * MAXVALUE); i++) {
-        drawBars("This is a progress bar for a different procedure ", 0, 3 * MAXVALUE, i);
-    }
-    for (int i = 0; i <= MAXVALUE; i++) {
-        drawBars("and one more of these procedures which need a progress bar", 0, MAXVALUE, i);
-    }
+//    for (int i = 0; i <= (3 * MAXVALUE); i++) {
+//        drawBars("This is a progress bar for a different procedure ", 0, 3 * MAXVALUE, i);
+//    }
+//    for (int i = 0; i <= MAXVALUE; i++) {
+//        drawBars("and one more of these procedures which need a progress bar", 0, MAXVALUE, i);
+//    }
     printw("... and done.");
     refresh();
 
